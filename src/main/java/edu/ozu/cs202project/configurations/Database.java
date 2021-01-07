@@ -16,8 +16,8 @@ public class Database
 
         source.setDriverClassName("com.mysql.cj.jdbc.Driver");
         source.setUrl("jdbc:mysql://localhost:3306/Project");
-        source.setUsername("root");
-        source.setPassword("418012Utku");
+        source.setUsername("cs202");
+        source.setPassword("project");
 
         return source;
     }
