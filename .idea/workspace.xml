@@ -2,11 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/main1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/test1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cs202-project.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/library_management_system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/library_management_system.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/configurations/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/configurations/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/services/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/Salter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/Salter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/ServletInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/ServletInitializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/YourNameCs202ProjectApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/YourNameCs202ProjectApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/configurations/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/configurations/Database.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/configurations/WebPages.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/configurations/WebPages.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/services/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/services/LoginService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/edu/ozu/cs202project/Cs202ProjectApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/edu/ozu/cs202project/Cs202ProjectApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,25 +29,27 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1mhpqvjKCaypCJ8F7w8SgwN2yNs" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="YourNameCs202ProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="cs202-project" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="edu.ozu.cs202project.YourNameCs202ProjectApplication" />
@@ -67,10 +81,72 @@
       <option name="presentableId" value="Default" />
       <updated>1609956130984</updated>
       <workItem from="1609956132665" duration="391000" />
+      <workItem from="1610025568484" duration="928000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="974" y="168" key="#YourNameCs202ProjectApplication" timestamp="1610025970409">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="974" y="168" key="#YourNameCs202ProjectApplication/0.0.1920.1080@0.0.1920.1080" timestamp="1610025970409" />
+    <state x="984" y="323" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1610025969655">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="984" y="323" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1610025969655" />
+    <state x="571" y="142" key="CommitChangelistDialog2" timestamp="1610026078560">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="571" y="142" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1610026078560" />
+    <state width="1878" height="304" key="GridCell.Tab.0.bottom" timestamp="1610026431359">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="304" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1610026431359" />
+    <state width="1878" height="304" key="GridCell.Tab.0.center" timestamp="1610026431357">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="304" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1610026431357" />
+    <state width="1878" height="304" key="GridCell.Tab.0.left" timestamp="1610026431356">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="304" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1610026431356" />
+    <state width="1878" height="304" key="GridCell.Tab.0.right" timestamp="1610026431358">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="304" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1610026431358" />
+    <state width="1878" height="304" key="GridCell.Tab.1.bottom" timestamp="1610026431362">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="304" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1610026431362" />
+    <state width="1878" height="304" key="GridCell.Tab.1.center" timestamp="1610026431360">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="304" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1610026431360" />
+    <state width="1878" height="304" key="GridCell.Tab.1.left" timestamp="1610026431360">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="304" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1610026431360" />
+    <state width="1878" height="304" key="GridCell.Tab.1.right" timestamp="1610026431361">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1878" height="304" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1610026431361" />
+    <state x="610" y="240" key="NewModule_or_Project.wizard" timestamp="1610026045006">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="610" y="240" key="NewModule_or_Project.wizard/0.0.1920.1080@0.0.1920.1080" timestamp="1610026045006" />
+    <state x="448" y="121" key="SettingsEditor" timestamp="1610026048937">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="448" y="121" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1610026048937" />
+    <state x="390" y="162" key="new project wizard" timestamp="1610026009175">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="390" y="162" key="new project wizard/0.0.1920.1080@0.0.1920.1080" timestamp="1610026009175" />
   </component>
 </project>

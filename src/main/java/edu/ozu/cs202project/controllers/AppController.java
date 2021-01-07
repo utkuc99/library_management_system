@@ -66,9 +66,9 @@ public class AppController
     @GetMapping("/list")
     public String list(ModelMap model)
     {
-        List<String[]> data = conn.query("SELECT * FROM items",
+        List<String[]> data = conn.query("SELECT * FROM Books",
                 (row, index) -> {
-                    return new String[]{ row.getString("item_name"), row.getString("item_value") };
+                    return new String[]{ row.getString("title"), row.getString("author_name") };
                 });
 
         model.addAttribute("itemData", data.toArray(new String[0][2]));
