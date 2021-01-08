@@ -6,17 +6,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.context.request.WebRequest;
 
+import java.awt.*;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 @Controller
-@SessionAttributes({ "username", "level", "itemData" })
+@SessionAttributes({ "username", "level", "itemData"})
 public class AppController
 {
     @Autowired
@@ -40,6 +39,7 @@ public class AppController
     @PostMapping("/login")
     public String login(ModelMap model, @RequestParam String username, @RequestParam String password)
     {
+
         password = Salter.salt(password, "CS202Project");
 
         if (!service.validate(username, password))
@@ -52,6 +52,12 @@ public class AppController
         model.put("username", username);
 
         return "login";
+    }
+
+    @RequestMapping(value = "/login" , params = "button", method=RequestMethod.POST)
+    public String signUpButton(ModelMap model)
+    {
+        return "redirect:/signUp";
     }
 
     @GetMapping("/logout")
@@ -74,5 +80,17 @@ public class AppController
         model.addAttribute("itemData", data.toArray(new String[0][2]));
 
         return "list";
+    }
+
+    @GetMapping("/signUp")
+    public String SignUp(ModelMap model)
+    {
+        return "signUp";
+    }
+
+    @PostMapping("/signUp")
+    public String SignUpPost(ModelMap model)
+    {
+        return "signUp";
     }
 }

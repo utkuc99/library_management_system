@@ -29,5 +29,8 @@
 <%
     }
 %>
+<form method="post">
+    <input type="submit" name="button" value="Sign-up "/>
+</form>
 </body>
 </html>

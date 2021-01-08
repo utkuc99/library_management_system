@@ -16,7 +16,7 @@ public class LoginService
     public boolean validate(String username, String password)
     {
         List<Map<String, Object>> response = conn.queryForList(
-                "SELECT * FROM Users WHERE username = ? AND password = ?", new Object[]{ username, password }
+                "SELECT * FROM users WHERE username = ? AND password = ?", new Object[]{ username, password }
                 );
 
         return response.size() == 1;
