@@ -53,6 +53,14 @@ public class AppController
             model.put("userId", login_user.user_id);
             model.put("userType", login_user.user_type);
             return "user_menu";
+        }else if(login_user.user_type == 2){
+            model.put("userId", login_user.user_id);
+            model.put("userType", login_user.user_type);
+            return "publisher_menu";
+        }else if(login_user.user_type == 3){
+            model.put("userId", login_user.user_id);
+            model.put("userType", login_user.user_type);
+            return "libmanager_menu";
         }
 
         return "login";
@@ -96,7 +104,7 @@ public class AppController
     {
         List<String[]> data = conn.query("SELECT * FROM Borrows, Books WHERE book = book_id AND borrower = " + model.getAttribute("userId"),
                 (row, index) -> {
-                    return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("book_id") };
+                    return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("book_id"), row.getString("returned") };
                 });
 
         model.addAttribute("itemData", data.toArray(new String[0][2]));
@@ -134,6 +142,20 @@ public class AppController
         return "book";
     }
 
+    @GetMapping("/unborrow")
+    public String unborrow(@RequestParam String id, ModelMap model) {
+        System.out.println(model.getAttribute("userId") + " borrowed the book: " + id);
+        conn.update(
+                "UPDATE Borrows SET returned = 1 WHERE book = ? AND borrower = ?",
+                id, model.getAttribute("userId")
+        );
+        conn.update(
+                "UPDATE Books SET is_borrowed = 0 WHERE book_id = ?",
+                id
+        );
+        return "borrow_hist";
+    }
+
     @GetMapping("/hold")
     public String hold(@RequestParam String id, ModelMap model) {
         System.out.println(model.getAttribute("userId") + " held the book: " + id);
@@ -152,6 +174,12 @@ public class AppController
                 id
         );
         return "book";
+    }
+
+    @GetMapping("/libmanager_menu")
+    public String libmanager_menu(ModelMap model)
+    {
+        return "libmanager_menu";
     }
 
     @GetMapping("/signUp")

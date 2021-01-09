@@ -9,10 +9,10 @@
 <% Integer user_id = (Integer) session.getAttribute("userId"); %>
 <html>
 <head>
-    <title>User Menu</title>
+    <title>Publisher Menu</title>
 </head>
 <body>
-<p> ÖzÜ Library User Menu </p>
+<p> ÖzÜ Library Publisher Menu </p>
 <p> User : <%= user_id %> </p>
 <button type="button" onclick="location.href = '/list';">Available Books</button>
 <button type="button" onclick="location.href = '/borrow_hist';">Borrow History</button>

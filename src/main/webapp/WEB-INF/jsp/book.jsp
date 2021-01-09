@@ -34,13 +34,12 @@
 <p> <%= "Topics" %> : <%= item.topics %>  </p>
 <p> <%= "Is Borrowed" %> : <%= item.is_borrowed %>  </p>
 <p> <%= "Is Held" %> : <%= item.is_held %>  </p>
-<p> <%= item.held_user %> : <%= user_id %>  </p>
 <%
         if(item.is_borrowed == false){
 %>
 <button type="button" onclick="location.href = '/borrow?id=<%= item.book_id %>';">Borrow</button>
 <%
-        }if(item.is_held == false){
+        }if(item.is_borrowed == true && item.is_held == false){
 %>
 <button type="button" onclick="location.href = '/hold?id=<%= item.book_id %>';">Hold</button>
 <%
