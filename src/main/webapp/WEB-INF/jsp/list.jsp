@@ -11,6 +11,7 @@
     <title>List Items Page</title>
 </head>
 <body>
+<p> Title : Author : More Detail</p>
 <%
     String[][] data = (String[][]) session.getAttribute("itemData");
 
@@ -19,7 +20,7 @@
         for (String[] item : data)
         {
 %>
-<p> <%= item[0] %> : <%= item[1] %>  </p>
+<p> <%= item[0] %> : <%= item[1] %> : <button type="button" onclick="location.href = '/book?id=<%= item[2] %>';">More</button></p>
 <%
         }
     }

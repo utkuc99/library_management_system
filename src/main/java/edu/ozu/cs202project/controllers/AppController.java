@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.context.request.WebRequest;
 
+import edu.ozu.cs202project.book;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -69,17 +70,63 @@ public class AppController
         return "redirect:/login";
     }
 
+    @GetMapping("/user_menu")
+    public String user_menu(ModelMap model) {
+        return "user_menu";
+    }
+
     @GetMapping("/list")
     public String list(ModelMap model)
     {
         List<String[]> data = conn.query("SELECT * FROM Books",
                 (row, index) -> {
-                    return new String[]{ row.getString("title"), row.getString("author_name") };
+                    return new String[]{ row.getString("title"), row.getString("author_name"), row.getString("book_id") };
                 });
 
         model.addAttribute("itemData", data.toArray(new String[0][2]));
 
         return "list";
+    }
+
+    @GetMapping("/borrow_hist")
+    public String borrow_hist(ModelMap model)
+    {
+        List<String[]> data = conn.query("SELECT * FROM Borrows, Books WHERE book = book_id AND borrower = 12",
+                (row, index) -> {
+                    return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("expected_return_date") };
+                });
+
+        model.addAttribute("itemData", data.toArray(new String[0][2]));
+
+        return "borrow_hist";
+    }
+
+    @GetMapping("/book")
+    public String book(@RequestParam String id, ModelMap model)
+    {
+        List<book> data = conn.query("SELECT * FROM Books WHERE book_id = " + id,
+                (row, index) -> {
+                    if(row.getBoolean("is_avaliable") == true){
+                        return new book(row.getInt("book_id"), row.getString("title"), row.getDate("publication_date"), row.getString("author_name"), row.getInt("publisher"), row.getString("genre"), row.getString("topics"), row.getBoolean("is_borrowed"), row.getBoolean("is_held"));
+                    }
+                    return null;
+                });
+
+        model.addAttribute("itemData", data.toArray(new book[0]));
+
+        return "book";
+    }
+
+    @GetMapping("/borrow")
+    public String borrow(@RequestParam String id, ModelMap model) {
+        System.out.println("User borrowed the book: " + id);
+        return "book";
+    }
+
+    @GetMapping("/hold")
+    public String hold(@RequestParam String id, ModelMap model) {
+        System.out.println("User held the book: " + id);
+        return "book";
     }
 
     @GetMapping("/signUp")
