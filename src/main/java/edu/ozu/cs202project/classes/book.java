@@ -21,7 +21,7 @@ public class book
 
 
 
-    public book(Integer id, String title, Date publication, String author, Integer publisher, String genre, String topics, Boolean borrowed, Boolean held) {
+    public book(Integer id, String title, Date publication, String author, Integer publisher, String genre, String topics, Boolean borrowed, Boolean held, Integer huser) {
         this.book_id = id;
         this.title=title;
         this.publication_date=publication;
@@ -31,6 +31,7 @@ public class book
         this.topics = topics;
         this.is_borrowed = borrowed;
         this.is_held = held;
+        this.held_user = huser;
     }
 
 

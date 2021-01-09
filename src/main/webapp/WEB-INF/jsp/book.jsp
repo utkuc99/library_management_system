@@ -14,6 +14,7 @@
 <body>
 <%
     book[] data = (book[]) session.getAttribute("itemData");
+    Integer user_id = (Integer) session.getAttribute("userId");
 
     if(data[0] == null){
 %>
@@ -33,6 +34,7 @@
 <p> <%= "Topics" %> : <%= item.topics %>  </p>
 <p> <%= "Is Borrowed" %> : <%= item.is_borrowed %>  </p>
 <p> <%= "Is Held" %> : <%= item.is_held %>  </p>
+<p> <%= item.held_user %> : <%= user_id %>  </p>
 <%
         if(item.is_borrowed == false){
 %>
@@ -41,6 +43,10 @@
         }if(item.is_held == false){
 %>
 <button type="button" onclick="location.href = '/hold?id=<%= item.book_id %>';">Hold</button>
+<%
+        }if(item.is_held == true && item.held_user == user_id){
+%>
+<button type="button" onclick="location.href = '/unhold?id=<%= item.book_id %>';">unHold</button>
 <%
             }
         }

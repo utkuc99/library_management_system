@@ -83,7 +83,7 @@ public class AppController
     {
         List<String[]> data = conn.query("SELECT * FROM Books",
                 (row, index) -> {
-                    return new String[]{ row.getString("title"), row.getString("author_name"), row.getString("book_id") };
+                    return new String[]{ row.getString("title"), row.getString("author_name"), row.getString("book_id"), row.getString("is_avaliable") };
                 });
 
         model.addAttribute("itemData", data.toArray(new String[0][2]));
@@ -96,7 +96,7 @@ public class AppController
     {
         List<String[]> data = conn.query("SELECT * FROM Borrows, Books WHERE book = book_id AND borrower = " + model.getAttribute("userId"),
                 (row, index) -> {
-                    return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("expected_return_date") };
+                    return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("book_id") };
                 });
 
         model.addAttribute("itemData", data.toArray(new String[0][2]));
@@ -110,7 +110,7 @@ public class AppController
         List<book> data = conn.query("SELECT * FROM Books WHERE book_id = " + id,
                 (row, index) -> {
                     if(row.getBoolean("is_avaliable") == true){
-                        return new book(row.getInt("book_id"), row.getString("title"), row.getDate("publication_date"), row.getString("author_name"), row.getInt("publisher"), row.getString("genre"), row.getString("topics"), row.getBoolean("is_borrowed"), row.getBoolean("is_held"));
+                        return new book(row.getInt("book_id"), row.getString("title"), row.getDate("publication_date"), row.getString("author_name"), row.getInt("publisher"), row.getString("genre"), row.getString("topics"), row.getBoolean("is_borrowed"), row.getBoolean("is_held"), row.getInt("held_user"));
                     }
                     return null;
                 });
@@ -123,12 +123,34 @@ public class AppController
     @GetMapping("/borrow")
     public String borrow(@RequestParam String id, ModelMap model) {
         System.out.println(model.getAttribute("userId") + " borrowed the book: " + id);
+        conn.update(
+                "INSERT INTO Borrows (borrower, book) VALUES (?, ?)",
+                model.getAttribute("userId"), id
+        );
+        conn.update(
+                "UPDATE Books SET is_borrowed = 1 WHERE book_id = ?",
+                id
+        );
         return "book";
     }
 
     @GetMapping("/hold")
     public String hold(@RequestParam String id, ModelMap model) {
         System.out.println(model.getAttribute("userId") + " held the book: " + id);
+        conn.update(
+                "UPDATE Books SET is_held = 1, held_user = ? WHERE book_id = ?",
+                model.getAttribute("userId"), id
+        );
+        return "book";
+    }
+
+    @GetMapping("/unhold")
+    public String unhold(@RequestParam String id, ModelMap model) {
+        System.out.println(model.getAttribute("userId") + " unheld the book: " + id);
+        conn.update(
+                "UPDATE Books SET is_held = 0, held_user = null WHERE book_id = ?",
+                id
+        );
         return "book";
     }
 
