@@ -1,5 +1,6 @@
 package edu.ozu.cs202project.services;
 
+import edu.ozu.cs202project.classes.user;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -13,12 +14,17 @@ public class LoginService
     @Autowired
     JdbcTemplate conn;
 
-    public boolean validate(String username, String password)
+    public user validate(String username, String password)
     {
-        List<Map<String, Object>> response = conn.queryForList(
-                "SELECT * FROM users WHERE username = ? AND password = ?", new Object[]{ username, password }
-                );
+        List<user> data = conn.query("SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'",
+                (row, index) -> {
+                    return new user(row.getInt("user_id"), row.getString("name"), row.getString("username"), row.getInt("user_type"));
+                });
 
-        return response.size() == 1;
+        if(data.size() == 1){
+            return data.get(0);
+        }else{
+            return null;
+        }
     }
 }

@@ -1,6 +1,6 @@
 package edu.ozu.cs202project.controllers;
 
-import edu.ozu.cs202project.Salter;
+import edu.ozu.cs202project.classes.user;
 import edu.ozu.cs202project.services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -10,13 +10,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.context.request.WebRequest;
 
-import edu.ozu.cs202project.book;
-import java.awt.*;
-import java.awt.event.ActionListener;
+import edu.ozu.cs202project.classes.book;
+
 import java.util.List;
 
 @Controller
-@SessionAttributes({ "username", "level", "itemData"})
+@SessionAttributes({ "userId", "userType", "level", "itemData"})
 public class AppController
 {
     @Autowired
@@ -41,16 +40,20 @@ public class AppController
     public String login(ModelMap model, @RequestParam String username, @RequestParam String password)
     {
 
-        password = Salter.salt(password, "CS202Project");
+        //password = Salter.salt(password, "CS202Project");
 
-        if (!service.validate(username, password))
+        user login_user = service.validate(username, password);
+
+        if (login_user == null)
         {
             model.put("errorMessage", "Invalid Credentials");
 
             return "login";
+        }else if(login_user.user_type == 1){
+            model.put("userId", login_user.user_id);
+            model.put("userType", login_user.user_type);
+            return "user_menu";
         }
-
-        model.put("username", username);
 
         return "login";
     }
@@ -91,7 +94,7 @@ public class AppController
     @GetMapping("/borrow_hist")
     public String borrow_hist(ModelMap model)
     {
-        List<String[]> data = conn.query("SELECT * FROM Borrows, Books WHERE book = book_id AND borrower = 12",
+        List<String[]> data = conn.query("SELECT * FROM Borrows, Books WHERE book = book_id AND borrower = " + model.getAttribute("userId"),
                 (row, index) -> {
                     return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("expected_return_date") };
                 });
@@ -119,13 +122,13 @@ public class AppController
 
     @GetMapping("/borrow")
     public String borrow(@RequestParam String id, ModelMap model) {
-        System.out.println("User borrowed the book: " + id);
+        System.out.println(model.getAttribute("userId") + " borrowed the book: " + id);
         return "book";
     }
 
     @GetMapping("/hold")
     public String hold(@RequestParam String id, ModelMap model) {
-        System.out.println("User held the book: " + id);
+        System.out.println(model.getAttribute("userId") + " held the book: " + id);
         return "book";
     }
 

@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="edu.ozu.cs202project.book" %>
+<%@ page import="edu.ozu.cs202project.classes.book" %>
 <html>
 <head>
     <title>User Menu</title>

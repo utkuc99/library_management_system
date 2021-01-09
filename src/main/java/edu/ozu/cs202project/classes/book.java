@@ -1,7 +1,5 @@
-package edu.ozu.cs202project;
+package edu.ozu.cs202project.classes;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 public class book
