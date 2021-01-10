@@ -15,7 +15,7 @@ public class Database
         DriverManagerDataSource source = new DriverManagerDataSource();
 
         source.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        source.setUrl("jdbc:mysql://172.25.102.227:3306/Project?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+        source.setUrl("jdbc:mysql://localhost:3306/Project?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
         source.setUsername("cs202");
         source.setPassword("project");
 

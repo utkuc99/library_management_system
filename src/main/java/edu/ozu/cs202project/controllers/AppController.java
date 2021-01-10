@@ -79,11 +79,29 @@ public class AppController
         return "signUp";
     }
 
-    @PostMapping("/signUp")
-    public String SignUpPost(ModelMap model)
+    @PostMapping(value = "/signUp", params = "register")
+    public String SignUpPost(ModelMap model, @RequestParam String username, @RequestParam String password, @RequestParam String name, @RequestParam String surname,
+    @RequestParam String phone_number,@RequestParam String birthdate)
+
     {
-        return "signUp";
+        if (username == null || password == null || name == null || surname ==  null || phone_number == null || birthdate == null){
+            model.put("error", "Please fill everything");
+            return "signUp";
+        }
+        else{
+            conn.update("INSERT INTO Users (user_id,name,surname,phone_number,birthdate,username,password,user_type) VALUES (user_id,?,?,?,?,?,?,user_type)",
+                    name,surname,phone_number,birthdate,username,password);
+            return "post_signup";
+
+        }
     }
+    @GetMapping("/post_signup")
+    public String post_signup(ModelMap model)
+    {
+        return "post_signup";
+    }
+
+
 
 
 

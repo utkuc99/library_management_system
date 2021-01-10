@@ -5,18 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/classes/book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/classes/book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/classes/user.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/classes/user.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/configurations/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/configurations/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/services/LoginService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/book.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/book.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_menu.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/classes/book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/classes/book.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/classes/user.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/classes/user.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/configurations/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/configurations/Database.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/services/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/services/LoginService.class" afterDir="false" />
     </list>
@@ -29,8 +23,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="jsf" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -68,6 +62,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="YourNameCs202ProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="cs202-project" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="edu.ozu.cs202project.YourNameCs202ProjectApplication" />
@@ -88,7 +93,7 @@
       </list>
     </option>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -145,68 +150,17 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="User menü ekledim&#10;userların book'ları listelemesi için sayfa ekledim&#10;her book'un detaylı görülebilmesi için sayfa ekledim&#10;userların borrow geçmişini görmesi için sayfa ekledim" />
     <MESSAGE value="borrow ve hold özelliklerini ekledim&#10;unborrow üzerinde çalışıyorum" />
     <MESSAGE value="books sayfasına library manager özellikleri ekledim&#10;menüleri tek kodda birleştirdim&#10;borrow ve return özelliklerine tarih ekleme ekledim" />
     <option name="LAST_COMMIT_MESSAGE" value="books sayfasına library manager özellikleri ekledim&#10;menüleri tek kodda birleştirdim&#10;borrow ve return özelliklerine tarih ekleme ekledim" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="567" y="133" key="CommitChangelistDialog2" timestamp="1610280408337">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="567" y="133" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1610280408337" />
-    <state width="1878" height="304" key="GridCell.Tab.0.bottom" timestamp="1610285885432">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="304" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1610285885432" />
-    <state width="1878" height="304" key="GridCell.Tab.0.bottom/0.23.1920.1057@0.23.1920.1057" timestamp="1610278666721" />
-    <state width="1878" height="304" key="GridCell.Tab.0.center" timestamp="1610285885431">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="304" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1610285885431" />
-    <state width="1878" height="304" key="GridCell.Tab.0.center/0.23.1920.1057@0.23.1920.1057" timestamp="1610278666720" />
-    <state width="1878" height="304" key="GridCell.Tab.0.left" timestamp="1610285885430">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="304" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1610285885430" />
-    <state width="1878" height="304" key="GridCell.Tab.0.left/0.23.1920.1057@0.23.1920.1057" timestamp="1610278666719" />
-    <state width="1878" height="304" key="GridCell.Tab.0.right" timestamp="1610285885431">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="304" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1610285885431" />
-    <state width="1878" height="304" key="GridCell.Tab.0.right/0.23.1920.1057@0.23.1920.1057" timestamp="1610278666720" />
-    <state width="1878" height="304" key="GridCell.Tab.1.bottom" timestamp="1610285885434">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="304" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1610285885434" />
-    <state width="1878" height="304" key="GridCell.Tab.1.bottom/0.23.1920.1057@0.23.1920.1057" timestamp="1610278666724" />
-    <state width="1878" height="304" key="GridCell.Tab.1.center" timestamp="1610285885433">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="304" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1610285885433" />
-    <state width="1878" height="304" key="GridCell.Tab.1.center/0.23.1920.1057@0.23.1920.1057" timestamp="1610278666722" />
-    <state width="1878" height="304" key="GridCell.Tab.1.left" timestamp="1610285885432">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="304" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1610285885432" />
-    <state width="1878" height="304" key="GridCell.Tab.1.left/0.23.1920.1057@0.23.1920.1057" timestamp="1610278666722" />
-    <state width="1878" height="304" key="GridCell.Tab.1.right" timestamp="1610285885433">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1878" height="304" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1610285885433" />
-    <state width="1878" height="304" key="GridCell.Tab.1.right/0.23.1920.1057@0.23.1920.1057" timestamp="1610278666723" />
-    <state x="560" y="280" key="Vcs.Push.Dialog.v2" timestamp="1610280415007">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="560" y="280" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1610280415007" />
   </component>
 </project>
