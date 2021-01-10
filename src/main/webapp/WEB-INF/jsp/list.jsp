@@ -11,6 +11,7 @@
     <title>List Items Page</title>
 </head>
 <body>
+<button type="button" onclick="location.href = '/user_menu';">Menu</button>
 <p> Title : Author : More Detail</p>
 <%
     String[][] data = (String[][]) session.getAttribute("itemData");

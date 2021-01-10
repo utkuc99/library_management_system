@@ -21,10 +21,7 @@
         for (String[] item : data)
         {
 %>
-<p> <%= item[0] %> : <%= item[1] %> : <%= item[2] %> :
-    <% if(item[3].equals("0")){ %>
-    <button type="button" onclick="location.href = '/returnbook?id=<%= item[4] %>';">Return Book</button>
-    <%}%>
+<p> <%= item[0] %> : <%= item[1] %> : <%= item[2] %> : <button type="button" onclick="location.href = '/user?id=<%= item[3] %>';">More</button>
 </p>
 <%
         }
