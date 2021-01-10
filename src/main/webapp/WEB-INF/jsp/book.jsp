@@ -52,6 +52,7 @@
         }if(user_type == 3){
 %>
 <p> Library Manager Only  </p>
+<p> <%= "Is Avaliable" %> : <%= item.is_avaliable %>  </p>
 <p> <%= "Borrow Count" %> : <%= item.borrow_count %>  </p>
 <p> <%= "Last Borrow" %> : <%= item.last_borrow %>  </p>
 <p> <%= "Held User" %> : <%= item.held_user %>  </p>

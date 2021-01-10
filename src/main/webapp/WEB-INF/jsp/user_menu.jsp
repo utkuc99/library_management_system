@@ -29,9 +29,10 @@
 <% }if (user_type == 3){%>
 <p> ÖzÜ Library Manager Menu </p>
 <p> User : <%= user_id %> </p>
-<button type="button" onclick="location.href = '/list';">Available Books</button>
+<button type="button" onclick="location.href = '/list';">Books</button>
 <button type="button" onclick="location.href = '/borrow_hist';">Borrow History</button>
 <button type="button" onclick="location.href = '/borrowed_books';">Borrowed Books</button>
+<button type="button" onclick="location.href = '/users';">Users</button>
 <button type="button" onclick="location.href = '/logout';">Logout</button>
 <% }%>
 

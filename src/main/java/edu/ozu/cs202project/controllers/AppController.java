@@ -105,14 +105,22 @@ public class AppController
     @GetMapping("/list")
     public String list(ModelMap model)
     {
-        List<String[]> data = conn.query("SELECT * FROM Books",
+        if((Integer) model.getAttribute("userType") == 3) {
+            List<String[]> data = conn.query("SELECT * FROM Books",
+                    (row, index) -> {
+                        return new String[]{row.getString("title"), row.getString("author_name"), row.getString("book_id")};
+                    });
+            model.addAttribute("itemData", data.toArray(new String[0][2]));
+            return "list";
+        }
+
+        List<String[]> data = conn.query("SELECT * FROM Books WHERE is_avaliable = 1",
                 (row, index) -> {
-                    return new String[]{ row.getString("title"), row.getString("author_name"), row.getString("book_id"), row.getString("is_avaliable") };
+                    return new String[]{row.getString("title"), row.getString("author_name"), row.getString("book_id")};
                 });
-
         model.addAttribute("itemData", data.toArray(new String[0][2]));
-
         return "list";
+
     }
 
     @GetMapping("/borrow_hist")
@@ -144,7 +152,7 @@ public class AppController
                 model.getAttribute("userId"), id, localDateTime, localDateTime2
         );
         conn.update(
-                "UPDATE Books SET is_borrowed = 1 WHERE book_id = ?",
+                "UPDATE Books SET is_borrowed = 1, borrow_count = borrow_count + 1 WHERE book_id = ?",
                 id
         );
         return "book";
@@ -204,13 +212,64 @@ public class AppController
         return "borrowed_books";
     }
 
+    @GetMapping("/users")
+    public String users(ModelMap model)
+    {
+        List<String[]> data = conn.query("SELECT * FROM Users WHERE user_type = 1;",
+                (row, index) -> {
+                    return new String[]{ row.getString("username"), row.getString("name"), row.getString("surname"), row.getString("user_id") };
+                });
+
+        model.addAttribute("itemData", data.toArray(new String[0][2]));
+
+        return "users";
+    }
+
+    @GetMapping("/user")
+    public String user(@RequestParam String id, ModelMap model)
+    {
+
+        List<user> data = conn.query("SELECT * FROM Users WHERE user_id = " + id,
+                (row, index) -> {
+                    if(row.getInt("user_type") == 1){
+                        return new user(row.getInt("user_id"), row.getString("name"), row.getString("surname"), row.getString("username"), row.getString("phone_number"), row.getString("birthdate"), row.getInt("user_type"));
+                    }
+                    return null;
+                });
+
+        model.addAttribute("itemData", data.toArray(new user[0]));
+
+        return "user";
+    }
+
+    @GetMapping("/borrow_hist_admin")
+    public String borrow_hist_admin(@RequestParam String id, ModelMap model)
+    {
+        if((Integer) model.getAttribute("userType") == 3){
+            List<String[]> data = conn.query("SELECT * FROM Borrows, Books WHERE book = book_id AND borrower = " + id,
+                    (row, index) -> {
+                        return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("expected_return_date"), row.getString("returned"), row.getString("book_id") };
+                    });
+
+            model.addAttribute("itemData", data.toArray(new String[0][2]));
+        }
+
+        return "borrow_hist";
+    }
+
+
+
+
+
+    // General Pages
+
     @GetMapping("/book")
     public String book(@RequestParam String id, ModelMap model)
     {
         List<book> data = conn.query("SELECT * FROM Books WHERE book_id = " + id,
                 (row, index) -> {
                     if(row.getBoolean("is_avaliable") == true){
-                        return new book(row.getInt("book_id"), row.getString("title"), row.getDate("publication_date"), row.getString("author_name"), row.getInt("publisher"), row.getString("genre"), row.getString("topics"), row.getBoolean("is_borrowed"), row.getBoolean("is_held"), row.getInt("held_user"));
+                        return new book(row.getInt("book_id"), row.getString("title"), row.getDate("publication_date"), row.getString("author_name"), row.getInt("publisher"), row.getString("genre"), row.getString("topics"), row.getBoolean("is_borrowed"), row.getBoolean("is_held"), row.getInt("held_user"), row.getInt("borrow_count"), row.getInt("last_borrow"), row.getDouble("penalty"), row.getBoolean("is_avaliable"));
                     }
                     return null;
                 });

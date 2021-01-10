@@ -18,7 +18,7 @@ public class LoginService
     {
         List<user> data = conn.query("SELECT * FROM users WHERE username = '" + username + "' AND password = '" + password + "'",
                 (row, index) -> {
-                    return new user(row.getInt("user_id"), row.getString("name"), row.getString("username"), row.getInt("user_type"));
+                    return new user(row.getInt("user_id"), row.getString("name"), row.getString("surname"), row.getString("username"), row.getString("phone_number"), row.getString("birthdate"), row.getInt("user_type"));
                 });
 
         if(data.size() == 1){

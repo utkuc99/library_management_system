@@ -21,7 +21,7 @@ public class book
 
 
 
-    public book(Integer id, String title, Date publication, String author, Integer publisher, String genre, String topics, Boolean borrowed, Boolean held, Integer huser) {
+    public book(Integer id, String title, Date publication, String author, Integer publisher, String genre, String topics, Boolean borrowed, Boolean held, Integer huser, Integer bcount, Integer lborrow, Double pen, Boolean isaval) {
         this.book_id = id;
         this.title=title;
         this.publication_date=publication;
@@ -32,6 +32,10 @@ public class book
         this.is_borrowed = borrowed;
         this.is_held = held;
         this.held_user = huser;
+        this.borrow_count = bcount;
+        this.last_borrow = lborrow;
+        this.penalty = pen;
+        this.is_avaliable = isaval;
     }
 
 
