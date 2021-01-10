@@ -12,6 +12,8 @@ import org.springframework.web.context.request.WebRequest;
 
 import edu.ozu.cs202project.classes.book;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -49,21 +51,11 @@ public class AppController
             model.put("errorMessage", "Invalid Credentials");
 
             return "login";
-        }else if(login_user.user_type == 1){
+        }else{
             model.put("userId", login_user.user_id);
             model.put("userType", login_user.user_type);
             return "user_menu";
-        }else if(login_user.user_type == 2){
-            model.put("userId", login_user.user_id);
-            model.put("userType", login_user.user_type);
-            return "publisher_menu";
-        }else if(login_user.user_type == 3){
-            model.put("userId", login_user.user_id);
-            model.put("userType", login_user.user_type);
-            return "libmanager_menu";
         }
-
-        return "login";
     }
 
     @RequestMapping(value = "/login" , params = "button", method=RequestMethod.POST)
@@ -81,10 +73,34 @@ public class AppController
         return "redirect:/login";
     }
 
+    @GetMapping("/signUp")
+    public String SignUp(ModelMap model)
+    {
+        return "signUp";
+    }
+
+    @PostMapping("/signUp")
+    public String SignUpPost(ModelMap model)
+    {
+        return "signUp";
+    }
+
+
+
+
+
+    // MENUS
+
     @GetMapping("/user_menu")
     public String user_menu(ModelMap model) {
         return "user_menu";
     }
+
+
+
+
+
+    // USER PAGES
 
     @GetMapping("/list")
     public String list(ModelMap model)
@@ -104,7 +120,7 @@ public class AppController
     {
         List<String[]> data = conn.query("SELECT * FROM Borrows, Books WHERE book = book_id AND borrower = " + model.getAttribute("userId"),
                 (row, index) -> {
-                    return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("book_id"), row.getString("returned") };
+                    return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("expected_return_date"), row.getString("returned"), row.getString("book_id") };
                 });
 
         model.addAttribute("itemData", data.toArray(new String[0][2]));
@@ -112,28 +128,20 @@ public class AppController
         return "borrow_hist";
     }
 
-    @GetMapping("/book")
-    public String book(@RequestParam String id, ModelMap model)
-    {
-        List<book> data = conn.query("SELECT * FROM Books WHERE book_id = " + id,
-                (row, index) -> {
-                    if(row.getBoolean("is_avaliable") == true){
-                        return new book(row.getInt("book_id"), row.getString("title"), row.getDate("publication_date"), row.getString("author_name"), row.getInt("publisher"), row.getString("genre"), row.getString("topics"), row.getBoolean("is_borrowed"), row.getBoolean("is_held"), row.getInt("held_user"));
-                    }
-                    return null;
-                });
 
-        model.addAttribute("itemData", data.toArray(new book[0]));
 
-        return "book";
-    }
+
+
+    // USER ACTIONS
 
     @GetMapping("/borrow")
     public String borrow(@RequestParam String id, ModelMap model) {
         System.out.println(model.getAttribute("userId") + " borrowed the book: " + id);
+        LocalDateTime localDateTime = LocalDateTime.now();
+        LocalDateTime localDateTime2 = localDateTime.plusMonths(1);
         conn.update(
-                "INSERT INTO Borrows (borrower, book) VALUES (?, ?)",
-                model.getAttribute("userId"), id
+                "INSERT INTO Borrows (borrower, book, borrow_date, expected_return_date) VALUES (?, ?, ?, ?)",
+                model.getAttribute("userId"), id, localDateTime, localDateTime2
         );
         conn.update(
                 "UPDATE Books SET is_borrowed = 1 WHERE book_id = ?",
@@ -142,12 +150,13 @@ public class AppController
         return "book";
     }
 
-    @GetMapping("/unborrow")
-    public String unborrow(@RequestParam String id, ModelMap model) {
-        System.out.println(model.getAttribute("userId") + " borrowed the book: " + id);
+    @GetMapping("/returnbook")
+    public String returnbook(@RequestParam String id, ModelMap model) {
+        System.out.println(model.getAttribute("userId") + " returned the book: " + id);
+        LocalDateTime localDateTime = LocalDateTime.now();
         conn.update(
-                "UPDATE Borrows SET returned = 1 WHERE book = ? AND borrower = ?",
-                id, model.getAttribute("userId")
+                "UPDATE Borrows SET returned = 1, real_return_date = ? WHERE book = ? AND borrower = ?",
+                localDateTime, id, model.getAttribute("userId")
         );
         conn.update(
                 "UPDATE Books SET is_borrowed = 0 WHERE book_id = ?",
@@ -176,21 +185,43 @@ public class AppController
         return "book";
     }
 
-    @GetMapping("/libmanager_menu")
-    public String libmanager_menu(ModelMap model)
+
+
+
+
+    // LİB MANAGER PAGES
+
+    @GetMapping("/borrowed_books")
+    public String borrowed_books(ModelMap model)
     {
-        return "libmanager_menu";
+        List<String[]> data = conn.query("SELECT * FROM Borrows, Books, Users WHERE book = book_id AND borrower = user_id AND returned = 0;",
+                (row, index) -> {
+                    return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("username"), row.getString("expected_return_date") };
+                });
+
+        model.addAttribute("itemData", data.toArray(new String[0][2]));
+
+        return "borrowed_books";
     }
 
-    @GetMapping("/signUp")
-    public String SignUp(ModelMap model)
+    @GetMapping("/book")
+    public String book(@RequestParam String id, ModelMap model)
     {
-        return "signUp";
+        List<book> data = conn.query("SELECT * FROM Books WHERE book_id = " + id,
+                (row, index) -> {
+                    if(row.getBoolean("is_avaliable") == true){
+                        return new book(row.getInt("book_id"), row.getString("title"), row.getDate("publication_date"), row.getString("author_name"), row.getInt("publisher"), row.getString("genre"), row.getString("topics"), row.getBoolean("is_borrowed"), row.getBoolean("is_held"), row.getInt("held_user"));
+                    }
+                    return null;
+                });
+
+        model.addAttribute("itemData", data.toArray(new book[0]));
+
+        return "book";
     }
 
-    @PostMapping("/signUp")
-    public String SignUpPost(ModelMap model)
-    {
-        return "signUp";
-    }
+
+
+
+
 }
