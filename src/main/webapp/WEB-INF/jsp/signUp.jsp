@@ -14,23 +14,17 @@
 
 <form method = post>
     Name : <input type="text" name = "name"/>
-</form>
-<form method = post>
+
     Surname : <input type = "text" name = "surname"/>
-</form>
-<form method = post>
+
     Phone Number : <input type="text" name= "phone_number"/>
-</form>
-<form method = post>
+
     Birthdate (YYYY-MM-DD) : <input type="text" name="birthdate"/>
-</form>
-<form method = post>
+
     Username : <input type="text" name="username"/>
-</form>
-<form method = post>
+
     Password : <input type="password" name="password"/>
-</form>
-<form method = post>
+
     <input type="submit" name="register" value="Register">
 </form>
 </body>

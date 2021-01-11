@@ -12,6 +12,7 @@ import org.springframework.web.context.request.WebRequest;
 
 import edu.ozu.cs202project.classes.book;
 
+import java.awt.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -297,8 +298,52 @@ public class AppController
         return "book";
     }
 
+    // Publisher
 
+    @GetMapping("/request")
+    public String request(ModelMap model)
+    {
+        return "request";
+    }
 
+    @PostMapping(value = "/request", params = "request")
+    public String postRequest (ModelMap model, @RequestParam String bookID, @RequestParam String request_type)
+    {
+        Integer requestType;
+        Integer book_id;
+        LocalDateTime localDateTime = LocalDateTime.now();
+        try{
+            book_id = Integer.parseInt(bookID);
+            requestType = Integer.parseInt(request_type);
 
+        } catch (NumberFormatException e){
+            model.put("error_id", "Please enter an id");
+            return "request";
+        }
+
+        if (bookID == null){
+            model.put("error", "Please fill everything");
+            return "request";
+        } else{
+            List<String[]> data = conn.query("SELECT book_id FROM Books WHERE book_id = " + bookID + " AND publisher = " + model.getAttribute("userId"),
+            (row, index) ->{
+                return new String[]{row.getString("book_id")};
+            });
+            if(data == null){
+                model.addAttribute("itemData", data.toArray(new String[0][2]));
+                model.put("error2", "Book doesn't exist");
+                return "request";
+            }
+        }
+
+        if (requestType >= 2){
+            model.put("error3", "Please enter either 0 or 1");
+            return "request";
+        }
+
+        conn.update("INSERT INTO Requests (request_id,request_date,requester_id,book_id,request_type,result,result_date,result_user) " +
+                "VALUES (request_id,?,?,?,?,result,result_date,result_user)",localDateTime,model.getAttribute("userId"),bookID,requestType);
+        return "user_menu";
+    }
 
 }
