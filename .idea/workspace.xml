@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="">
+    <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="Sign up için query yi ekledim fakat bir sonraki sayfaya geçemiyorum, hata alıyorum.">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/post_signup.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signUp.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/configurations/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/configurations/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/classes/book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/classes/book.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/classes/user.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/classes/user.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/configurations/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/configurations/Database.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/services/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/services/LoginService.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610280408499</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Sign up için query yi ekledim fakat bir sonraki sayfaya geçemiyorum, hata alıyorum.">
+      <created>1610315463536</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1610315463536</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,6 +163,7 @@
     <MESSAGE value="User menü ekledim&#10;userların book'ları listelemesi için sayfa ekledim&#10;her book'un detaylı görülebilmesi için sayfa ekledim&#10;userların borrow geçmişini görmesi için sayfa ekledim" />
     <MESSAGE value="borrow ve hold özelliklerini ekledim&#10;unborrow üzerinde çalışıyorum" />
     <MESSAGE value="books sayfasına library manager özellikleri ekledim&#10;menüleri tek kodda birleştirdim&#10;borrow ve return özelliklerine tarih ekleme ekledim" />
-    <option name="LAST_COMMIT_MESSAGE" value="books sayfasına library manager özellikleri ekledim&#10;menüleri tek kodda birleştirdim&#10;borrow ve return özelliklerine tarih ekleme ekledim" />
+    <MESSAGE value="Sign up için query yi ekledim fakat bir sonraki sayfaya geçemiyorum, hata alıyorum." />
+    <option name="LAST_COMMIT_MESSAGE" value="Sign up için query yi ekledim fakat bir sonraki sayfaya geçemiyorum, hata alıyorum." />
   </component>
 </project>
