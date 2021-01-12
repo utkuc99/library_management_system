@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="">
+    <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="sayfa refresh sıkıntıları giderildi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/book.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/book.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/borrow_hist.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/borrow_hist.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/borrowed_books.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/borrowed_books.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_menu.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,6 +101,7 @@
       <workItem from="1610224234774" duration="319000" />
       <workItem from="1610224562527" duration="5701000" />
       <workItem from="1610276742422" duration="8675000" />
+      <workItem from="1610454444821" duration="2137000" />
     </task>
     <task id="LOCAL-00001" summary="User menü ekledim&#10;userların book'ları listelemesi için sayfa ekledim&#10;her book'un detaylı görülebilmesi için sayfa ekledim&#10;userların borrow geçmişini görmesi için sayfa ekledim">
       <created>1610195559712</created>
@@ -174,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610452796752</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="lib man başkaları için return(unborrow) yapabiliyor artık">
+      <created>1610453878518</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1610453878518</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,60 +218,62 @@
     <MESSAGE value="Library manager için publisher signup ekledim. Sign-up ta boş username veya password kabul ediyordu sistem onu düzelttim. Error message ekledim onlar için" />
     <MESSAGE value="book ve list geliştirme yaptım" />
     <MESSAGE value="lib man başkaları için borrow yapabiliyor artık" />
-    <option name="LAST_COMMIT_MESSAGE" value="lib man başkaları için borrow yapabiliyor artık" />
+    <MESSAGE value="lib man başkaları için return(unborrow) yapabiliyor artık" />
+    <MESSAGE value="sayfa refresh sıkıntıları giderildi" />
+    <option name="LAST_COMMIT_MESSAGE" value="sayfa refresh sıkıntıları giderildi" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="91" y="127" key="CommitChangelistDialog2" timestamp="1610452796594">
+    <state x="91" y="127" key="CommitChangelistDialog2" timestamp="1610455041311">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="91" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1610452796594" />
-    <state width="1638" height="294" key="GridCell.Tab.0.bottom" timestamp="1610453781892">
+    <state x="91" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1610455041311" />
+    <state width="819" height="294" key="GridCell.Tab.0.bottom" timestamp="1610457734776">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="294" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1610453781892" />
+    <state width="819" height="294" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1610457734776" />
     <state width="1638" height="294" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1610453044265" />
-    <state width="1638" height="294" key="GridCell.Tab.0.center" timestamp="1610453781890">
+    <state width="819" height="294" key="GridCell.Tab.0.center" timestamp="1610457734774">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="294" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1610453781890" />
+    <state width="819" height="294" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1610457734774" />
     <state width="1638" height="294" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1610453044262" />
-    <state width="1638" height="294" key="GridCell.Tab.0.left" timestamp="1610453781890">
+    <state width="819" height="294" key="GridCell.Tab.0.left" timestamp="1610457734774">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="294" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1610453781890" />
+    <state width="819" height="294" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1610457734774" />
     <state width="1638" height="294" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1610453044260" />
-    <state width="1638" height="294" key="GridCell.Tab.0.right" timestamp="1610453781891">
+    <state width="819" height="294" key="GridCell.Tab.0.right" timestamp="1610457734775">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="294" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1610453781891" />
+    <state width="819" height="294" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1610457734775" />
     <state width="1638" height="294" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1610453044264" />
-    <state width="1638" height="294" key="GridCell.Tab.1.bottom" timestamp="1610453781895">
+    <state width="819" height="294" key="GridCell.Tab.1.bottom" timestamp="1610457734779">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="294" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1610453781895" />
+    <state width="819" height="294" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1610457734779" />
     <state width="1638" height="294" key="GridCell.Tab.1.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1610453044272" />
-    <state width="1638" height="294" key="GridCell.Tab.1.center" timestamp="1610453781893">
+    <state width="819" height="294" key="GridCell.Tab.1.center" timestamp="1610457734777">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="294" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1610453781893" />
+    <state width="819" height="294" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1610457734777" />
     <state width="1638" height="294" key="GridCell.Tab.1.center/0.23.1680.1027@0.23.1680.1027" timestamp="1610453044267" />
-    <state width="1638" height="294" key="GridCell.Tab.1.left" timestamp="1610453781892">
+    <state width="819" height="294" key="GridCell.Tab.1.left" timestamp="1610457734777">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="294" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1610453781892" />
+    <state width="819" height="294" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1610457734777" />
     <state width="1638" height="294" key="GridCell.Tab.1.left/0.23.1680.1027@0.23.1680.1027" timestamp="1610453044266" />
-    <state width="1638" height="294" key="GridCell.Tab.1.right" timestamp="1610453781894">
+    <state width="819" height="294" key="GridCell.Tab.1.right" timestamp="1610457734778">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="1638" height="294" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1610453781894" />
+    <state width="819" height="294" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1610457734778" />
     <state width="1638" height="294" key="GridCell.Tab.1.right/0.23.1680.1027@0.23.1680.1027" timestamp="1610453044271" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1610452802599">
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1610455948783">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610452802599" />
-    <state x="623" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610452811791">
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610455948783" />
+    <state x="623" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610455954719">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="623" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610452811791" />
+    <state x="623" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610455954719" />
   </component>
 </project>

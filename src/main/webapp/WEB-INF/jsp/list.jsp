@@ -15,12 +15,12 @@
 <% Integer user_type = (Integer) session.getAttribute("userType");
     if(user_type == 1){
 %>
-<p> Title : Author : More Detail</p>
+<h3> Title : Author : More Detail</h3>
 <%
     }
     if(user_type > 1){
 %>
-<p> Title : Author : Availability : More Detail</p>
+<h3> Title : Author : Availability : More Detail</h3>
 <%
     }
     String[][] data = (String[][]) session.getAttribute("itemData");

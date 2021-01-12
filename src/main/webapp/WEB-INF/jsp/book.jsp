@@ -17,7 +17,7 @@
 <button type="button" onclick="location.href = '/user_menu';">Menu</button>
 <h3>Book Details:</h3>
 <%
-    book[] data = (book[]) session.getAttribute("itemData");
+    book[] data = (book[]) session.getAttribute("bookData");
     Integer user_id = (Integer) session.getAttribute("userId");
     Integer user_type = (Integer) session.getAttribute("userType");
 

@@ -13,12 +13,15 @@ import org.springframework.web.context.request.WebRequest;
 import edu.ozu.cs202project.classes.book;
 
 import java.awt.*;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
+import java.util.Date;
 import java.util.List;
 
 @Controller
-@SessionAttributes({ "userId", "userType", "itemData"})
+@SessionAttributes({ "userId", "userType", "itemData", "bookData"})
 public class AppController
 {
     LocalDateTime localDateTime = LocalDateTime.now();
@@ -160,7 +163,13 @@ public class AppController
     {
         List<String[]> data = conn.query("SELECT * FROM Borrows, Books WHERE book = book_id AND borrower = " + model.getAttribute("userId"),
                 (row, index) -> {
-                    return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("expected_return_date"), row.getString("returned"), row.getString("book_id") };
+                    LocalDateTime from = row.getTimestamp("expected_return_date").toLocalDateTime();
+                    Duration duration = Duration.between(from, localDateTime);
+                    Long dif = duration.toDays();
+                    System.out.println(dif);
+                    Double penalty = 0.0;
+                    if(dif > 0) {penalty = row.getDouble("penalty") * dif;}
+                    return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("expected_return_date"), row.getString("returned"), row.getString("book_id"), penalty.toString() };
                 });
 
         model.addAttribute("itemData", data.toArray(new String[0][2]));
@@ -185,6 +194,7 @@ public class AppController
                 "UPDATE Books SET is_borrowed = 1, borrow_count = borrow_count + 1 WHERE book_id = ?",
                 id
         );
+        book(id, model);
         return "book";
     }
 
@@ -201,8 +211,10 @@ public class AppController
                 id
         );
         if(model.getAttribute("userType").equals(3)){
+            borrowed_books(model);
             return "borrowed_books";
         }
+        borrow_hist(model);
         return "borrow_hist";
     }
 
@@ -213,6 +225,7 @@ public class AppController
                 "UPDATE Books SET is_held = 1, held_user = ? WHERE book_id = ?",
                 model.getAttribute("userId"), id
         );
+        book(id, model);
         return "book";
     }
 
@@ -223,6 +236,7 @@ public class AppController
                 "UPDATE Books SET is_held = 0, held_user = null WHERE book_id = ?",
                 id
         );
+        book(id, model);
         return "book";
     }
 
@@ -237,7 +251,13 @@ public class AppController
     {
         List<String[]> data = conn.query("SELECT * FROM Borrows, Books, Users WHERE book = book_id AND borrower = user_id AND returned = 0;",
                 (row, index) -> {
-                    return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("username"), row.getString("expected_return_date"), row.getString("returned"), row.getString("book") };
+                    LocalDateTime from = row.getTimestamp("expected_return_date").toLocalDateTime();
+                    Duration duration = Duration.between(from, localDateTime);
+                    Long dif = duration.toDays();
+                    System.out.println(dif);
+                    Double penalty = 0.0;
+                    if(dif > 0) {penalty = row.getDouble("penalty") * dif;}
+                    return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("username"), row.getString("expected_return_date"), row.getString("returned"), row.getString("book"), penalty.toString() };
                 });
 
         model.addAttribute("itemData", data.toArray(new String[0][2]));
@@ -281,7 +301,13 @@ public class AppController
         if((Integer) model.getAttribute("userType") == 3){
             List<String[]> data = conn.query("SELECT * FROM Borrows, Books WHERE book = book_id AND borrower = " + id,
                     (row, index) -> {
-                        return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("expected_return_date"), row.getString("returned"), row.getString("book_id") };
+                        LocalDateTime from = row.getTimestamp("expected_return_date").toLocalDateTime();
+                        Duration duration = Duration.between(from, localDateTime);
+                        Long dif = duration.toDays();
+                        System.out.println(dif);
+                        Double penalty = 0.0;
+                        if(dif > 0) {penalty = row.getDouble("penalty") * dif;}
+                        return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("expected_return_date"), row.getString("returned"), row.getString("book_id"), penalty.toString() };
                     });
 
             model.addAttribute("itemData", data.toArray(new String[0][2]));
@@ -314,7 +340,7 @@ public class AppController
     }
 
     @PostMapping(value = "/book", params = "register")
-    public String SignUpPost(ModelMap model, @RequestParam String userID, @RequestParam String id)
+    public String borrow(ModelMap model, @RequestParam String userID, @RequestParam String id)
     {
         if (userID.isEmpty() || id.isEmpty()){
             model.put("error", "Please fill everything");
@@ -329,6 +355,7 @@ public class AppController
                     "UPDATE Books SET is_borrowed = 1, borrow_count = borrow_count + 1 WHERE book_id = ?",
                     id
             );
+            book(id, model);
             return "book" ;
         }
     }
@@ -348,7 +375,7 @@ public class AppController
                     return null;
                 });
 
-        model.addAttribute("itemData", data.toArray(new book[0]));
+        model.addAttribute("bookData", data.toArray(new book[0]));
 
         return "book";
     }
