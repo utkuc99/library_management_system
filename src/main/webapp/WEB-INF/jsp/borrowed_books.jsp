@@ -21,7 +21,7 @@
         for (String[] item : data)
         {
 %>
-<p> <%= item[0] %> : <%= item[1] %> : <%= item[2] %> : <%= item[3] %> </p>
+<p> <%= item[0] %> : <%= item[1] %> : <%= item[2] %> : <%= item[3] %> : </p>
 <%
         }
     }

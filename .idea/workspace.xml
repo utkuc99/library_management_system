@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="Library manager için publisher signup ekledim. Sign-up ta boş username veya password kabul ediyordu sistem onu düzelttim. Error message ekledim onlar için">
+    <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="book ve list geliştirme yaptım">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/libman_borrow.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/book.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/book.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/borrowed_books.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/borrowed_books.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/configurations/Database.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/configurations/Database.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,17 +62,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="YourNameCs202ProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="cs202-project" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="edu.ozu.cs202project.YourNameCs202ProjectApplication" />
@@ -87,7 +82,7 @@
       </list>
     </option>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -186,12 +181,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="User menü ekledim&#10;userların book'ları listelemesi için sayfa ekledim&#10;her book'un detaylı görülebilmesi için sayfa ekledim&#10;userların borrow geçmişini görmesi için sayfa ekledim" />
@@ -203,6 +199,57 @@
     <MESSAGE value="Publisherlardan kittap borrow yapma özelliğini kaldırdım" />
     <MESSAGE value="Publisherlardan kitap borrow etme özelliğini kaldırdım" />
     <MESSAGE value="Library manager için publisher signup ekledim. Sign-up ta boş username veya password kabul ediyordu sistem onu düzelttim. Error message ekledim onlar için" />
-    <option name="LAST_COMMIT_MESSAGE" value="Library manager için publisher signup ekledim. Sign-up ta boş username veya password kabul ediyordu sistem onu düzelttim. Error message ekledim onlar için" />
+    <MESSAGE value="book ve list geliştirme yaptım" />
+    <option name="LAST_COMMIT_MESSAGE" value="book ve list geliştirme yaptım" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="91" y="127" key="CommitChangelistDialog2" timestamp="1610449954306">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="91" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1610449954306" />
+    <state width="1638" height="294" key="GridCell.Tab.0.bottom" timestamp="1610452428631">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="294" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1610452428631" />
+    <state width="1638" height="294" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1610451751529" />
+    <state width="1638" height="294" key="GridCell.Tab.0.center" timestamp="1610452428630">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="294" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1610452428630" />
+    <state width="1638" height="294" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1610451751527" />
+    <state width="1638" height="294" key="GridCell.Tab.0.left" timestamp="1610452428629">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="294" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1610452428629" />
+    <state width="1638" height="294" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1610451751527" />
+    <state width="1638" height="294" key="GridCell.Tab.0.right" timestamp="1610452428631">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="294" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1610452428631" />
+    <state width="1638" height="294" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1610451751528" />
+    <state width="1638" height="294" key="GridCell.Tab.1.bottom" timestamp="1610452428634">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="294" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1610452428634" />
+    <state width="1638" height="294" key="GridCell.Tab.1.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1610451751531" />
+    <state width="1638" height="294" key="GridCell.Tab.1.center" timestamp="1610452428633">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="294" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1610452428633" />
+    <state width="1638" height="294" key="GridCell.Tab.1.center/0.23.1680.1027@0.23.1680.1027" timestamp="1610451751530" />
+    <state width="1638" height="294" key="GridCell.Tab.1.left" timestamp="1610452428632">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="294" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1610452428632" />
+    <state width="1638" height="294" key="GridCell.Tab.1.left/0.23.1680.1027@0.23.1680.1027" timestamp="1610451751529" />
+    <state width="1638" height="294" key="GridCell.Tab.1.right" timestamp="1610452428633">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="294" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1610452428633" />
+    <state width="1638" height="294" key="GridCell.Tab.1.right/0.23.1680.1027@0.23.1680.1027" timestamp="1610451751531" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1610451141852">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610451141852" />
   </component>
 </project>
