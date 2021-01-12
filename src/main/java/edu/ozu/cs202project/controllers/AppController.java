@@ -1,5 +1,6 @@
 package edu.ozu.cs202project.controllers;
 
+//import com.sun.org.apache.xpath.internal.operations.Mod;
 import edu.ozu.cs202project.classes.user;
 import edu.ozu.cs202project.services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -317,6 +318,47 @@ public class AppController
         model.addAttribute("itemData", data.toArray(new book[0]));
 
         return "book";
+    }
+
+    @GetMapping("/addBook")
+    public String addBook(ModelMap model)
+    {
+        return "addBook";
+    }
+
+    @PostMapping(value = "/addBook", params = "add")
+    public String addBookPost(ModelMap model, @RequestParam String title, @RequestParam String publication_date, @RequestParam String author_name,
+                              @RequestParam String publisher, @RequestParam String genre,@RequestParam String topics)
+    {
+        LocalDateTime localDateTime = LocalDateTime.now();
+
+        if((Integer)model.getAttribute("userType") == 2) {
+            conn.update("INSERT INTO Books (book_id,title,publication_date,author_name,publisher,genre,topics,is_avaliable,is_borrowed,borrow_count,last_borrow," +
+                    "is_held,held_user,penalty) VALUES (book_id,?,?,?,?,?,?,0,is_borrowed,borrow_count,last_borrow,is_held,held_user,penalty)",title,publication_date,author_name,
+                    model.getAttribute("userId"),genre,topics);
+
+            List<book> data = conn.query("SELECT book_id FROM Books WHERE title = " + title,
+                    (row, index) -> {
+                        return new book (row.getInt("book_id"));
+                    });
+
+            conn.update("INSERT INTO Requests (request_id,request_date,requester_id,book_id,request_type,result,result_date,result_user) VALUES (request_id,?,?,null,1,result,result_date,result_user)",
+                    localDateTime,model.getAttribute("userId"));
+            return "user_menu";
+        }
+        else{
+            Integer publisherID;
+            try{
+                publisherID = Integer.parseInt(publisher);
+            } catch (NumberFormatException e){
+                model.put("error", "Enter the publisher id");
+                return "addBook";
+            }
+            conn.update("INSERT INTO Books (book_id,title,publication_date,author_name,publisher,genre,topics,is_avaliable,is_borrowed,borrow_count,last_borrow," +
+                            "is_held,held_user,penalty) VALUES (book_id,?,?,?,?,?,?,1,is_borrowed,borrow_count,last_borrow,is_held,held_user,penalty)",title,publication_date,author_name,
+                    publisher,genre,topics);
+            return "user_menu";
+        }
     }
 
     // Publisher

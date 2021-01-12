@@ -33,6 +33,7 @@
 </form>
 <form method="post">
     <button type="button" onclick="location.href = '/user_menu';">Menu</button>
+    <button type="button" onclick="location.href = '/addBook';">Add New Book</button>
 </form>
 
 </body>
