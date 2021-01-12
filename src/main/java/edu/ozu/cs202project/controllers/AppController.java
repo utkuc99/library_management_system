@@ -395,12 +395,14 @@ public class AppController
                     "is_held,held_user,penalty) VALUES (book_id,?,?,?,?,?,?,0,is_borrowed,borrow_count,last_borrow,is_held,held_user,penalty)",title,publication_date,author_name,
                     model.getAttribute("userId"),genre,topics);
 
-            List<book> data = conn.query("SELECT book_id FROM Books WHERE title = " + title,
+            List<String[]> data = conn.query("SELECT book_id FROM Books WHERE title = '" + title +"'",
                     (row, index) -> {
-                        return new book (row.getInt("book_id"));
+                        return new String[] {row.getString("book_id")};
                     });
+            String [] bookId = data.get(0);
+            //System.out.println(bookId[0]);
 
-            conn.update("INSERT INTO Requests (request_id,request_date,requester_id,book_id,request_type,result,result_date,result_user) VALUES (request_id,?,?,null,1,result,result_date,result_user)",
+            conn.update("INSERT INTO Requests (request_id,request_date,requester_id,book_id,request_type,result,result_date,result_user) VALUES (request_id,?,?," + bookId[0] +",1,result,result_date,result_user)",
                     localDateTime,model.getAttribute("userId"));
             return "user_menu";
         }

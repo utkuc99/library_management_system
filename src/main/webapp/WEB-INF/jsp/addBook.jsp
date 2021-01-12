@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <% Integer user_type = (Integer) session.getAttribute("userType"); %>
+<% Integer user_id = (Integer) session.getAttribute("userId"); %>
 <html>
 <head>
     <title>Add New Book</title>
@@ -29,9 +30,9 @@
     Title : <input type="text" name="title"/>
     Publication Date : <input type="text" name="publication_date"/>
     Author Name  : <input type="text" name="author_name"/>
-    Publisher : <input type="text" name="publisher"/>
     Genre : <input type="text" name="genre"/>
     Topic : <input type="text" name="topics"/>
+    <input type="hidden" name="publisher" readonly="readonly"/>
     <input type="submit" name="add" value="Add"/>
 <%
     }
