@@ -37,15 +37,15 @@
 <p> <%= "Is Borrowed" %> : <%= item.is_borrowed %>  </p>
 <p> <%= "Is Held" %> : <%= item.is_held %>  </p>
 <%
-        if(item.is_borrowed == false){
+        if(item.is_borrowed == false && user_type != 2){
 %>
 <button type="button" onclick="location.href = '/borrow?id=<%= item.book_id %>';">Borrow</button>
 <%
-        }if(item.is_borrowed == true && item.is_held == false){
+        }if((item.is_borrowed == true && item.is_held == false) && user_type != 2){
 %>
 <button type="button" onclick="location.href = '/hold?id=<%= item.book_id %>';">Hold</button>
 <%
-        }if(item.is_held == true && item.held_user == user_id){
+        }if((item.is_held == true && item.held_user == user_id) && user_type != 2){
 %>
 <button type="button" onclick="location.href = '/unhold?id=<%= item.book_id %>';">unHold</button>
 <%

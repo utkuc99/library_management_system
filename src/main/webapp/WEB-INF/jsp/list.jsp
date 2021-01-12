@@ -21,19 +21,12 @@
     {
         for (String[] item : data)
         {
-            if(user_type != 2)
-            {
 %>
 <p> <%= item[0] %> : <%= item[1] %> : <button type="button" onclick="location.href = '/book?id=<%= item[2] %>';">More</button></p>
 
 <%
             }
-            else {
-%>
- <p> <%= item[0] %> : <%= item[1] %></p>
-<%
-            }
-        }
+
     }
 %>
 </body>
