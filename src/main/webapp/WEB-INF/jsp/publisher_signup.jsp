@@ -1,14 +1,14 @@
 <%--
   Created by IntelliJ IDEA.
   User: Volkan
-  Date: 7.01.2021
-  Time: 21:29
+  Date: 12.01.2021
+  Time: 11:06
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Sign-Up</title>
+    <title>Publisher Sign-up</title>
 </head>
 <body>
 <%
@@ -16,24 +16,17 @@
     String password = (String) session.getAttribute("password");
     String name = (String) session.getAttribute("name");
     String phone_number = (String) session.getAttribute("phone_number");
-    String surname = (String) session.getAttribute("surname");
-    String birthdate = (String) session.getAttribute("birthdate");
 
-    if(username == null || password == null || name == null || phone_number == null || surname == null || birthdate == null){
+    if(username == null || password == null || name == null || phone_number == null){
 %>
 <p style="color: red">${error}</p>
 <%
     }
 %>
-
 <form method = post>
     Name : <input type="text" name = "name"/>
 
-    Surname : <input type = "text" name = "surname"/>
-
     Phone Number : <input type="text" name= "phone_number"/>
-
-    Birthdate (YYYY-MM-DD) : <input type="text" name="birthdate"/>
 
     Username : <input type="text" name="username"/>
 

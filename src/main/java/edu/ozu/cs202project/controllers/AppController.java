@@ -85,7 +85,7 @@ public class AppController
     @RequestParam String phone_number,@RequestParam String birthdate)
 
     {
-        if (username == null || password == null || name == null || surname ==  null || phone_number == null || birthdate == null){
+        if (username.isEmpty() || password.isEmpty() || name.isEmpty() || surname.isEmpty() || phone_number.isEmpty() || birthdate.isEmpty()){
             model.put("error", "Please fill everything");
             return "signUp";
         }
@@ -276,7 +276,28 @@ public class AppController
         return "borrow_hist";
     }
 
+    @GetMapping("/publisher_signup")
+    public String publisherSignup(ModelMap model)
+    {
+        return "publisher_signup";
+    }
 
+    @PostMapping(value = "/publisher_signup", params = "register")
+    public String publisherSignupPost (ModelMap model, @RequestParam String username, @RequestParam String password, @RequestParam String name, @RequestParam String phone_number)
+    {
+        {
+            if (username.isEmpty() || password.isEmpty() || name.isEmpty() ||  phone_number.isEmpty() ){
+                model.put("error", "Please fill everything");
+                return "publisher_signup";
+            }
+            else{
+                conn.update("INSERT INTO Users (user_id,name,surname,phone_number,birthdate,username,password,user_type) VALUES (user_id,?,surname,?,birthdate,?,?,2)",
+                        name,phone_number,username,password);
+                return "publisher_signup_post";
+
+            }
+        }
+    }
 
 
 

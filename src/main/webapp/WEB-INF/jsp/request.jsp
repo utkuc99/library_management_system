@@ -31,6 +31,9 @@
 
     <input type="submit" name="request" value="Request"/>
 </form>
+<form method="post">
+    <button type="button" onclick="location.href = '/user_menu';">Menu</button>
+</form>
 
 </body>
 </html>

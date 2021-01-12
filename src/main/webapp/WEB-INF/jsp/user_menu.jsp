@@ -34,6 +34,7 @@
 <button type="button" onclick="location.href = '/borrow_hist';">Borrow History</button>
 <button type="button" onclick="location.href = '/borrowed_books';">Borrowed Books</button>
 <button type="button" onclick="location.href = '/users';">Users</button>
+<button type="button" onclick="location.href = '/publisher_signup';">Publisher Sign-up</button>
 <button type="button" onclick="location.href = '/logout';">Logout</button>
 <% }%>
 
