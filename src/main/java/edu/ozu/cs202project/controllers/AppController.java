@@ -346,4 +346,18 @@ public class AppController
         return "user_menu";
     }
 
+    @GetMapping("/publisher_borrowed")
+    public String publisherBorrowed (ModelMap model)
+    {
+        System.out.println(model.getAttribute("userId"));
+        List<String[]> data = conn.query("SELECT * FROM Borrows, Books, Users WHERE book = book_id AND borrower = user_id AND returned = 0 AND publisher = " + model.getAttribute("userId") + ";",
+                (row, index) -> {
+                    return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("username"), row.getString("expected_return_date") };
+                });
+
+        model.addAttribute("itemData", data.toArray(new String[0][2]));
+
+        return "publisher_borrowed";
+    }
+
 }

@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="Sign up için query yi ekledim fakat bir sonraki sayfaya geçemiyorum, hata alıyorum.">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/request.jsp" afterDir="false" />
+    <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="Publisher için request. Şimdilik çalıştığında user menüye atıyor.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signUp.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signUp.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_menu.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" afterDir="false" />
     </list>
@@ -151,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610387880080</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Publisher için request. Şimdilik çalıştığında user menüye atıyor.">
+      <created>1610402352357</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1610402352357</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,6 +179,7 @@
     <MESSAGE value="borrow ve hold özelliklerini ekledim&#10;unborrow üzerinde çalışıyorum" />
     <MESSAGE value="books sayfasına library manager özellikleri ekledim&#10;menüleri tek kodda birleştirdim&#10;borrow ve return özelliklerine tarih ekleme ekledim" />
     <MESSAGE value="Sign up için query yi ekledim fakat bir sonraki sayfaya geçemiyorum, hata alıyorum." />
-    <option name="LAST_COMMIT_MESSAGE" value="Sign up için query yi ekledim fakat bir sonraki sayfaya geçemiyorum, hata alıyorum." />
+    <MESSAGE value="Publisher için request. Şimdilik çalıştığında user menüye atıyor." />
+    <option name="LAST_COMMIT_MESSAGE" value="Publisher için request. Şimdilik çalıştığında user menüye atıyor." />
   </component>
 </project>
