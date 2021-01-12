@@ -12,7 +12,7 @@
 </head>
 <body>
 <button type="button" onclick="location.href = '/user_menu';">Menu</button>
-<p> Title : Borrow Date : Expected Return Date </p>
+<h3> Title : Borrow Date : Expected Return Date </h3>
 <%
     String[][] data = (String[][]) session.getAttribute("itemData");
 

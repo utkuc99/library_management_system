@@ -6,10 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="Library manager için publisher signup ekledim. Sign-up ta boş username veya password kabul ediyordu sistem onu düzelttim. Error message ekledim onlar için">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/request.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/request.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_menu.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/list.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,14 +175,7 @@
       <option name="project" value="LOCAL" />
       <updated>1610442333637</updated>
     </task>
-    <task id="LOCAL-00011" summary="Library manager için publisher signup ekledim. Sign-up ta boş username veya password kabul ediyordu sistem onu düzelttim. Error message ekledim onlar için">
-      <created>1610443158118</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1610443158118</updated>
-    </task>
-    <option name="localTasksCounter" value="12" />
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -12,7 +12,7 @@
 </head>
 <body>
 <button type="button" onclick="location.href = '/user_menu';">Menu</button>
-<p> Title : Borrow Date : Username : Expected Return Date </p>
+<h3> Title : Borrow Date : Username : Expected Return Date </h3>
 <%
     String[][] data = (String[][]) session.getAttribute("itemData");
 
@@ -21,7 +21,12 @@
         for (String[] item : data)
         {
 %>
-<p> <%= item[0] %> : <%= item[1] %> : <%= item[2] %> : <%= item[3] %> </p>
+<p> <%= item[0] %> : <%= item[1] %> : <%= item[2] %> : <%= item[3] %> : <%= item[6] %>
+    <% if(item[4].equals("0")){
+    %>
+     : <button type="button" onclick="location.href = '/returnbook?id=<%= item[5] %>';">Return Book</button>
+    <%}%>
+</p>
 <%
         }
     }
