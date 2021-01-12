@@ -193,13 +193,16 @@ public class AppController
         System.out.println(model.getAttribute("userId") + " returned the book: " + id);
         LocalDateTime localDateTime = LocalDateTime.now();
         conn.update(
-                "UPDATE Borrows SET returned = 1, real_return_date = ? WHERE book = ? AND borrower = ?",
-                localDateTime, id, model.getAttribute("userId")
+                "UPDATE Borrows SET returned = 1, real_return_date = ? WHERE book = ?",
+                localDateTime, id
         );
         conn.update(
                 "UPDATE Books SET is_borrowed = 0 WHERE book_id = ?",
                 id
         );
+        if(model.getAttribute("userType").equals(3)){
+            return "borrowed_books";
+        }
         return "borrow_hist";
     }
 
@@ -234,7 +237,7 @@ public class AppController
     {
         List<String[]> data = conn.query("SELECT * FROM Borrows, Books, Users WHERE book = book_id AND borrower = user_id AND returned = 0;",
                 (row, index) -> {
-                    return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("username"), row.getString("expected_return_date") };
+                    return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("username"), row.getString("expected_return_date"), row.getString("returned"), row.getString("book") };
                 });
 
         model.addAttribute("itemData", data.toArray(new String[0][2]));
@@ -326,7 +329,7 @@ public class AppController
                     "UPDATE Books SET is_borrowed = 1, borrow_count = borrow_count + 1 WHERE book_id = ?",
                     id
             );
-            return "book";
+            return "book" ;
         }
     }
 
