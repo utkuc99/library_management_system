@@ -1,6 +1,7 @@
 package edu.ozu.cs202project.controllers;
 
 //import com.sun.org.apache.xpath.internal.operations.Mod;
+//import com.sun.org.apache.xpath.internal.operations.Mod;
 import edu.ozu.cs202project.classes.user;
 import edu.ozu.cs202project.services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -358,6 +359,51 @@ public class AppController
         }
     }
 
+    @GetMapping("/requests")
+    public String requests(ModelMap model){
+
+        List<String[]> data = conn.query("SELECT * FROM Requests;",
+                (row, index) -> {
+                    return new String[]{ row.getString("request_id"), row.getString("request_date"), row.getString("requester_id"),
+                            row.getString("book_id"), row.getString("request_type"), row.getString("result"), row.getString("result_date"), row.getString("result_user") };
+                });
+
+        model.addAttribute("itemData", data.toArray(new String[0][2]));
+
+        return "requests";
+    }
+    @PostMapping(value = "/requests", params = "accept")
+    public String requestAccept(ModelMap model, @RequestParam String requestId, @RequestParam String bookId, @RequestParam String request_type){
+        LocalDateTime localDateTime = LocalDateTime.now();
+
+        conn.update("UPDATE Requests SET result = 1, result_date = ?, result_user = ? WHERE request_id = ?",
+                localDateTime,model.getAttribute("userId"),requestId);
+
+        if(request_type.equals("1")){
+            conn.update("UPDATE Books SET is_avaliable = 1 WHERE book_id = ? ",bookId);
+        } else {
+            conn.update("UPDATE Books SET is_avaliable = 0 WHERE book_id = ? ",bookId);
+        }
+        requests(model);
+        return "requests";
+    }
+
+    @PostMapping(value = "/requests" , params = "reject")
+    public String requestReject(ModelMap model, @RequestParam String bookId, @RequestParam String requestId, @RequestParam String request_type){
+        LocalDateTime localDateTime = LocalDateTime.now();
+
+        conn.update("UPDATE Requests SET result = 0, result_date = ?, result_user = ? WHERE request_id = ?",
+                localDateTime,model.getAttribute("userId"),requestId);
+
+        if(request_type.equals("1")){
+            conn.update("UPDATE Books SET is_avaliable = 0 WHERE book_id = ? ",bookId);
+        } else {
+            conn.update("UPDATE Books SET is_avaliable = 1 WHERE book_id = ? ",bookId);
+        }
+        requests(model);
+        return "requests";
+    }
+
 
 
     // General Pages
@@ -457,6 +503,23 @@ public class AppController
                 model.put("error2", "Book doesn't exist");
                 return "request";
             }
+        }
+
+        List<String[]> data = conn.query("SELECT is_avaliable FROM Books WHERE book_id = " + bookID + " AND publisher = " + model.getAttribute("userId"),
+                (row, index) ->{
+                    return new String[]{row.getString("is_avaliable")};
+                });
+        String [] available = data.get(0);
+        System.out.println(available[0]);
+
+        if(available[0].equals("1") && requestType == 1){
+            model.put("error4", "Book is already available");
+            return "request";
+        }
+
+        if (available[0].equals("0") && requestType == 0){
+            model.put("error5", "Book is already not available");
+            return "request";
         }
 
         if (requestType >= 2){
