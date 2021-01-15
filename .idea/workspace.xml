@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/statistics_menu.jsp" afterDir="false" />
+    <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="Filter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/borrowers_most_book.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/borrowers_most_book.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/overdue_book_number.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/overdue_book_number.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/stats_most_books.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/stats_most_books.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/stats_most_genres.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/stats_most_genres.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/stats_most_publisher.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/stats_most_publisher.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_menu.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/classes/book.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/classes/book.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -85,7 +80,7 @@
       </list>
     </option>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -104,7 +99,7 @@
       <workItem from="1610276742422" duration="8675000" />
       <workItem from="1610454444821" duration="2809000" />
       <workItem from="1610706436346" duration="3432000" />
-      <workItem from="1610740801529" duration="5191000" />
+      <workItem from="1610740801529" duration="4352000" />
     </task>
     <task id="LOCAL-00001" summary="User menü ekledim&#10;userların book'ları listelemesi için sayfa ekledim&#10;her book'un detaylı görülebilmesi için sayfa ekledim&#10;userların borrow geçmişini görmesi için sayfa ekledim">
       <created>1610195559712</created>
@@ -218,14 +213,7 @@
       <option name="project" value="LOCAL" />
       <updated>1610713985215</updated>
     </task>
-    <task id="LOCAL-00017" summary="statistics added">
-      <created>1610746746459</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1610746746459</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,13 +224,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="User menü ekledim&#10;userların book'ları listelemesi için sayfa ekledim&#10;her book'un detaylı görülebilmesi için sayfa ekledim&#10;userların borrow geçmişini görmesi için sayfa ekledim" />
@@ -262,67 +249,6 @@
     <MESSAGE value="print silindi basit düzeltme" />
     <MESSAGE value="borrowed_books penalty text added" />
     <MESSAGE value="changed mysql querys" />
-    <MESSAGE value="statistics added" />
-    <option name="LAST_COMMIT_MESSAGE" value="statistics added" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="91" y="127" key="CommitChangelistDialog2" timestamp="1610746746214">
-      <screen x="0" y="23" width="1680" height="1027" />
-    </state>
-    <state x="91" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1610707174355" />
-    <state x="91" y="127" key="CommitChangelistDialog2/0.23.1680.1027@0.23.1680.1027" timestamp="1610746746214" />
-    <state width="819" height="298" key="GridCell.Tab.0.bottom" timestamp="1610747446669">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="819" height="298" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1610747446669" />
-    <state width="819" height="298" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1610746645203" />
-    <state width="819" height="298" key="GridCell.Tab.0.center" timestamp="1610747446668">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="819" height="298" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1610747446668" />
-    <state width="819" height="298" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1610746645201" />
-    <state width="819" height="298" key="GridCell.Tab.0.left" timestamp="1610747446667">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="819" height="298" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1610747446667" />
-    <state width="819" height="298" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1610746645201" />
-    <state width="819" height="298" key="GridCell.Tab.0.right" timestamp="1610747446669">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="819" height="298" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1610747446669" />
-    <state width="819" height="298" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1610746645202" />
-    <state width="819" height="298" key="GridCell.Tab.1.bottom" timestamp="1610747446673">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="819" height="298" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1610747446673" />
-    <state width="819" height="298" key="GridCell.Tab.1.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1610746645205" />
-    <state width="819" height="298" key="GridCell.Tab.1.center" timestamp="1610747446671">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="819" height="298" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1610747446671" />
-    <state width="819" height="298" key="GridCell.Tab.1.center/0.23.1680.1027@0.23.1680.1027" timestamp="1610746645204" />
-    <state width="819" height="298" key="GridCell.Tab.1.left" timestamp="1610747446670">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="819" height="298" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1610747446670" />
-    <state width="819" height="298" key="GridCell.Tab.1.left/0.23.1680.1027@0.23.1680.1027" timestamp="1610746645203" />
-    <state width="819" height="298" key="GridCell.Tab.1.right" timestamp="1610747446672">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state width="819" height="298" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1610747446672" />
-    <state width="819" height="298" key="GridCell.Tab.1.right/0.23.1680.1027@0.23.1680.1027" timestamp="1610746645204" />
-    <state x="551" y="230" key="MultipleFileMergeDialog" timestamp="1610707006674">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="551" y="230" key="MultipleFileMergeDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1610707006674" />
-    <state x="551" y="248" key="MultipleFileMergeDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1610459182087" />
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1610746753383">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610746753383" />
-    <state x="623" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1610740952592">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="623" y="449" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610740952592" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed mysql querys" />
   </component>
 </project>
