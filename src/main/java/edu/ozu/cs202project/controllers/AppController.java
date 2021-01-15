@@ -246,8 +246,30 @@ public class AppController
         return "book";
     }
 
+    @GetMapping("/publisher_search")
+    public String publisherSearch (ModelMap model){
+        return "publisher_search";
+    }
 
+    @PostMapping("/publisher_search")
+    public String publisherSearchPost (ModelMap model, @RequestParam String publisher, @RequestParam String genre){
+        if (publisher.isEmpty()){
+            String publisherEmpty = "";
+            publisher = publisherEmpty;
+        }
+        if (genre.isEmpty()){
+            String genreEmpty = "";
+            genre = genreEmpty;
+        }
+        List<String[]> data = conn.query("SELECT DISTINCT name,genre_name FROM users,books,genres where users.user_id = books.publisher " +
+                        "and books.genre = genres.genre_id and genre_name like'%"+genre+"%' and name like '%"+publisher+"%'",
+                (row, index) -> {
+                    return new String[]{ row.getString("name"), row.getString("genre_name") };
+                });
 
+        model.addAttribute("itemData", data.toArray(new String[0][2]));
+        return "publisher_search";
+    }
 
 
     // LİB MANAGER PAGES
@@ -481,6 +503,7 @@ public class AppController
     public String searchBox (ModelMap model, @RequestParam String title, @RequestParam String author, @RequestParam String genre, @RequestParam String topic,
                              @RequestParam(defaultValue = "false") boolean available, @RequestParam String year_published ){
         String is_available;
+        String is_borrowed;
         if (title.isEmpty()){
             String titleEmpty = "";
             title = titleEmpty;
@@ -499,23 +522,40 @@ public class AppController
         }
         if (available == false){
             is_available = "0";
+            is_borrowed = "1";
         } else {
             is_available = "1";
+            is_borrowed = "0";
         }
         if (year_published.isEmpty()){
             String publication_date = "";
             year_published = publication_date;
         }
 
-        List<String[]> data = conn.query("SELECT DISTINCT book_id,title,author_name,genre_name,topic_name,is_avaliable,publication_date from books,genres,authors,topics where books.genre = genres.genre_id and\n" +
-                        "books.author = authors.author_id and books.topic = topics.topic_id and title like '%"+title+"%' and author_name like '%"+author+"%' and genre_name like '%"+genre+"%' and topic_name like '%"+topic+"%' " +
-                        "and is_avaliable = " + is_available + " and publication_date like '%"+year_published+"%' ",
-                (row, index) -> {
-                    return new String[]{ row.getString("book_id"), row.getString("title"), row.getString("author_name"),
-                            row.getString("genre_name"), row.getString("topic_name"), row.getString("is_avaliable"), row.getString("publication_date") };
-                });
+        if((Integer) model.getAttribute("userType") == 1){
+
+            List<String[]> data = conn.query("SELECT DISTINCT book_id,title,author_name,genre_name,topic_name,is_borrowed,publication_date from books,genres,authors,topics where books.genre = genres.genre_id and\n" +
+                            "books.author = authors.author_id and books.topic = topics.topic_id and title like '%"+title+"%' and author_name like '%"+author+"%' and genre_name like '%"+genre+"%' and topic_name like '%"+topic+"%' " +
+                            "and is_borrowed = " + is_borrowed + " and publication_date like '%"+year_published+"%' ",
+                    (row, index) -> {
+                        return new String[]{ row.getString("book_id"), row.getString("title"), row.getString("author_name"),
+                                row.getString("genre_name"), row.getString("topic_name"), row.getString("is_avaliable"), row.getString("publication_date") };
+                    });
+
+            model.addAttribute("itemData", data.toArray(new String[0][2]));
+
+        } else {
+            List<String[]> data = conn.query("SELECT DISTINCT book_id,title,author_name,genre_name,topic_name,is_avaliable,publication_date from books,genres,authors,topics where books.genre = genres.genre_id and\n" +
+                            "books.author = authors.author_id and books.topic = topics.topic_id and title like '%"+title+"%' and author_name like '%"+author+"%' and genre_name like '%"+genre+"%' and topic_name like '%"+topic+"%' " +
+                            "and is_avaliable = " + is_available + " and publication_date like '%"+year_published+"%' ",
+                    (row, index) -> {
+                        return new String[]{ row.getString("book_id"), row.getString("title"), row.getString("author_name"),
+                                row.getString("genre_name"), row.getString("topic_name"), row.getString("is_avaliable"), row.getString("publication_date") };
+                    });
 
         model.addAttribute("itemData", data.toArray(new String[0][10]));
+
+        }
 
         search(model);
         return "search";
@@ -596,7 +636,7 @@ public class AppController
                     return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("username"), row.getString("expected_return_date") };
                 });
 
-        model.addAttribute("itemData", data.toArray(new String[0][2]));
+            model.addAttribute("itemData", data.toArray(new String[0][2]));
 
         return "publisher_borrowed";
     }
