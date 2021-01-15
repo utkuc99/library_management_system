@@ -21,6 +21,7 @@
 <button type="button" onclick="location.href = '/stats_most_publisher';">Publisher's With Most Borrowed Books</button>
 <button type="button" onclick="location.href = '/overdue_book_number';">Overdue Book Number</button>
 <button type="button" onclick="location.href = '/borrowers_most_book';">Borrowers of Most Borrowed Book</button>
+<button type="button" onclick="location.href = '/stats_overdue_number';">Number Of Times That Each Book Has Been Returned Late</button>
 <% }%>
 
 </body>

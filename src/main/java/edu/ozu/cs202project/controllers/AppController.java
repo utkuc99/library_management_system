@@ -678,4 +678,19 @@ public class AppController
         return "user_menu";
     }
 
+    @GetMapping("/stats_overdue_number")
+    public String stats_overdue_number(ModelMap model)
+    {
+        if((Integer) model.getAttribute("userType") == 3) {
+            java.sql.Timestamp timestamp = java.sql.Timestamp.valueOf(localDateTime);
+            List<String[]> data = conn.query("SELECT book_id, title, COUNT(*) FROM Books, Borrows WHERE book = book_id AND real_return_date >= expected_return_date AND returned = 1 GROUP BY book_id",
+                    (row, index) -> {
+                        return new String[]{row.getString("book_id"), row.getString("title"), row.getString("COUNT(*)")};
+                    });
+            model.addAttribute("itemData", data.toArray(new String[0][2]));
+            return "stats_overdue_number";
+        }
+        return "user_menu";
+    }
+
 }
