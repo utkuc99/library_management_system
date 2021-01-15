@@ -693,7 +693,7 @@ public class AppController
     {
         if((Integer) model.getAttribute("userType") == 3) {
             java.sql.Timestamp timestamp = java.sql.Timestamp.valueOf(localDateTime);
-            List<String[]> data = conn.query("SELECT COUNT(*) FROM Books, Borrows WHERE book = book_id AND expected_return_date < '" + timestamp + "'",
+            List<String[]> data = conn.query("SELECT COUNT(*) FROM Books, Borrows WHERE book = book_id AND returned = 0 AND expected_return_date < '" + timestamp + "'",
                     (row, index) -> {
                         return new String[]{row.getString("COUNT(*)")};
                     });
