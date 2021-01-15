@@ -124,6 +124,11 @@ public class AppController
         return "user_menu";
     }
 
+    @GetMapping("/statistics_menu")
+    public String statistics_menu(ModelMap model) {
+        return "statistics_menu";
+    }
+
 
 
 

@@ -16,7 +16,8 @@
     String[][] data = (String[][]) session.getAttribute("itemData");
     if(user_type == 3){
 %>
-<h3> Book ID : Title : Borrow Count</h3>
+<h2>Most Borrowed Books (Last 3 Months)</h2>
+<h3> Book ID : Title : Borrow Count : More Info</h3>
 <%
     }
     if (data != null)
@@ -25,7 +26,7 @@
         {
             if(user_type == 3){
 %>
-<p> <%= item[0] %> : <%= item[1] %> : <%= item[2] %> </p>
+<p> <%= item[0] %> : <%= item[1] %> : <%= item[2] %> : <button type="button" onclick="location.href = '/book?id=<%= item[0] %>';">More</button></p>
 <%
             }
         }

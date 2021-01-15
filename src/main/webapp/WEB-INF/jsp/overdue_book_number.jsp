@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Publisher's With Most Borrowed Books</title>
+    <title>Overdue Book Number</title>
 </head>
 <body>
 <button type="button" onclick="location.href = '/user_menu';">Menu</button>
@@ -16,7 +16,7 @@
     String[][] data = (String[][]) session.getAttribute("itemData");
     if(user_type == 3){
 %>
-<h3> Number </h3>
+<h2>Overdue Book Number</h2>
 <%
     }
     if (data != null)

@@ -37,6 +37,7 @@
 <button type="button" onclick="location.href = '/publisher_signup';">Publisher Sign-up</button>
 <button type="button" onclick="location.href = '/addBook';">Add New Book</button>
 <button type="button" onclick="location.href = '/requests';">Requests</button>
+<button type="button" onclick="location.href = '/statistics_menu';">Statistics</button>
 <button type="button" onclick="location.href = '/logout';">Logout</button>
 <% }%>
 

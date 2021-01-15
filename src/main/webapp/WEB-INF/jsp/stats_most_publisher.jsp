@@ -16,6 +16,7 @@
     String[][] data = (String[][]) session.getAttribute("itemData");
     if(user_type == 3){
 %>
+<h2>Publisher's With Most Borrowed Books</h2>
 <h3> User ID : Name : Borrow Count</h3>
 <%
     }

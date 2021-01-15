@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Publisher's With Most Borrowed Books</title>
+    <title>Borrowers of Most Borrowed Book</title>
 </head>
 <body>
 <button type="button" onclick="location.href = '/user_menu';">Menu</button>
@@ -16,7 +16,8 @@
     String[][] data = (String[][]) session.getAttribute("itemData");
     if(user_type == 3){
 %>
-<h3> User ID : Name : Borrow Count</h3>
+<h2>Borrowers of Most Borrowed Book</h2>
+<h3> User ID : Username : Borrow Count : More Info</h3>
 <%
     }
     if (data != null)
@@ -25,7 +26,7 @@
         {
             if(user_type == 3){
 %>
-<p> <%= item[0] %> : <%= item[1] %> : <%= item[2] %> </p>
+<p> <%= item[0] %> : <%= item[1] %> : <%= item[2] %> : <button type="button" onclick="location.href = '/user?id=<%= item[0] %>';">More</button></p>
 <%
             }
         }
