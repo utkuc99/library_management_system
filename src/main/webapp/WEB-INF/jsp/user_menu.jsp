@@ -19,6 +19,7 @@
 <p> User : <%= user_id %> </p>
 <button type="button" onclick="location.href = '/list';">Available Books</button>
 <button type="button" onclick="location.href = '/borrow_hist';">Borrow History</button>
+<button type="button" onclick="location.href = '/search';">Search</button>
 <button type="button" onclick="location.href = '/logout';">Logout</button>
 <% }if (user_type == 2){%>
 <p> ÖzÜ Library Publisher Menu </p>

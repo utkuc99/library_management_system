@@ -437,8 +437,8 @@ public class AppController
         LocalDateTime localDateTime = LocalDateTime.now();
 
         if((Integer)model.getAttribute("userType") == 2) {
-            conn.update("INSERT INTO Books (book_id,title,publication_date,author_name,publisher,genre,topics,is_avaliable,is_borrowed,borrow_count,last_borrow," +
-                    "is_held,held_user,penalty) VALUES (book_id,?,?,?,?,?,?,0,is_borrowed,borrow_count,last_borrow,is_held,held_user,penalty)",title,publication_date,author_name,
+            conn.update("INSERT INTO Books (book_id,title,publication_date,author,publisher,genre,topic,is_avaliable,is_borrowed,borrow_count," +
+                    "is_held,held_user,penalty) VALUES (book_id,?,?,?,?,?,?,0,is_borrowed,borrow_count,is_held,held_user,penalty)",title,publication_date,author_name,
                     model.getAttribute("userId"),genre,topics);
 
             List<String[]> data = conn.query("SELECT book_id FROM Books WHERE title = '" + title +"'",
@@ -460,12 +460,62 @@ public class AppController
                 model.put("error", "Enter the publisher id");
                 return "addBook";
             }
-            conn.update("INSERT INTO Books (book_id,title,publication_date,author_name,publisher,genre,topics,is_avaliable,is_borrowed,borrow_count,last_borrow," +
-                            "is_held,held_user,penalty) VALUES (book_id,?,?,?,?,?,?,1,is_borrowed,borrow_count,last_borrow,is_held,held_user,penalty)",title,publication_date,author_name,
+            conn.update("INSERT INTO Books (book_id,title,publication_date,author,publisher,genre,topic,is_avaliable,is_borrowed,borrow_count," +
+                            "is_held,held_user,penalty) VALUES (book_id,?,?,?,?,?,?,1,is_borrowed,borrow_count,is_held,held_user,penalty)",title,publication_date,author_name,
                     publisher,genre,topics);
             return "user_menu";
         }
     }
+
+    @GetMapping("/search")
+    public String search (ModelMap model){
+        return "search";
+    }
+
+    @PostMapping(value = "/search", params = "searchBox")
+    public String searchBox (ModelMap model, @RequestParam String title, @RequestParam String author, @RequestParam String genre, @RequestParam String topic,
+                             @RequestParam(defaultValue = "false") boolean available, @RequestParam String year_published ){
+        String is_available;
+        if (title.isEmpty()){
+            String titleEmpty = "";
+            title = titleEmpty;
+        }
+        if (author.isEmpty()){
+            String authorEmpty = "";
+            author = authorEmpty;
+        }
+        if (genre.isEmpty()){
+            String genreEmpty = "";
+            genre = genreEmpty;
+        }
+        if (topic.isEmpty()){
+            String topicEmpty = "";
+            topic = topicEmpty;
+        }
+        if (available == false){
+            is_available = "0";
+        } else {
+            is_available = "1";
+        }
+        if (year_published.isEmpty()){
+            String publication_date = "";
+            year_published = publication_date;
+        }
+
+        List<String[]> data = conn.query("SELECT DISTINCT book_id,title,author_name,genre_name,topic_name,is_avaliable,publication_date from books,genres,authors,topics where books.genre = genres.genre_id and\n" +
+                        "books.author = authors.author_id and books.topic = topics.topic_id and title like '%"+title+"%' and author_name like '%"+author+"%' and genre_name like '%"+genre+"%' and topic_name like '%"+topic+"%' " +
+                        "and is_avaliable = " + is_available + " and publication_date like '%"+year_published+"%' ",
+                (row, index) -> {
+                    return new String[]{ row.getString("book_id"), row.getString("title"), row.getString("author_name"),
+                            row.getString("genre_name"), row.getString("topic_name"), row.getString("is_avaliable"), row.getString("publication_date") };
+                });
+
+        model.addAttribute("itemData", data.toArray(new String[0][2]));
+
+        search(model);
+        return "search";
+    }
+
 
     // Publisher
 
