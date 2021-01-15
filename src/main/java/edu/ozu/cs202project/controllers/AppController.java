@@ -134,7 +134,7 @@ public class AppController
     public String list(ModelMap model)
     {
         if((Integer) model.getAttribute("userType") == 3) {
-            List<String[]> data = conn.query("SELECT * FROM Books",
+            List<String[]> data = conn.query("SELECT * FROM Books, Authors WHERE author = author_id",
                     (row, index) -> {
                         return new String[]{row.getString("title"), row.getString("author_name"), row.getString("is_avaliable"), row.getString("book_id")};
                     });
@@ -143,7 +143,7 @@ public class AppController
         }
 
         if((Integer) model.getAttribute("userType") == 2) {
-            List<String[]> data = conn.query("SELECT * FROM Books WHERE publisher = " + model.getAttribute("userId"),
+            List<String[]> data = conn.query("SELECT * FROM Books, Authors WHERE author = author_id and publisher = " + model.getAttribute("userId"),
                     (row, index) -> {
                         return new String[]{row.getString("title"), row.getString("author_name"), row.getString("is_avaliable"), row.getString("book_id")};
                     });
@@ -151,7 +151,7 @@ public class AppController
             return "list";
         }
 
-        List<String[]> data = conn.query("SELECT * FROM Books WHERE is_avaliable = 1",
+        List<String[]> data = conn.query("SELECT * FROM Books, Authors WHERE author = author_id and is_avaliable = 1",
                 (row, index) -> {
                     return new String[]{row.getString("title"), row.getString("author_name"), row.getString("book_id")};
                 });
@@ -411,10 +411,10 @@ public class AppController
     @GetMapping("/book")
     public String book(@RequestParam String id, ModelMap model)
     {
-        List<book> data = conn.query("SELECT * FROM Books WHERE book_id = " + id,
+        List<book> data = conn.query("SELECT * FROM Books, Authors, Genres, Topics, Users WHERE author = author_id and genre = genre_id and topic = topic_id and publisher = user_id and book_id = " + id,
                 (row, index) -> {
                     if(row.getBoolean("is_avaliable") == true){
-                        return new book(row.getInt("book_id"), row.getString("title"), row.getDate("publication_date"), row.getString("author_name"), row.getInt("publisher"), row.getString("genre"), row.getString("topics"), row.getBoolean("is_borrowed"), row.getBoolean("is_held"), row.getInt("held_user"), row.getInt("borrow_count"), row.getInt("last_borrow"), row.getDouble("penalty"), row.getBoolean("is_avaliable"));
+                        return new book(row.getInt("book_id"), row.getString("title"), row.getDate("publication_date"), row.getString("author_name"), row.getString("name"), row.getString("genre_name"), row.getString("topic_name"), row.getBoolean("is_borrowed"), row.getBoolean("is_held"), row.getInt("held_user"), row.getInt("borrow_count"), row.getDouble("penalty"), row.getBoolean("is_avaliable"));
                     }
                     return null;
                 });

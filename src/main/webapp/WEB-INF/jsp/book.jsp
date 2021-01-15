@@ -60,7 +60,6 @@
 <h3>Library Manager Only:</h3>
 <p> <%= "Is Avaliable" %> : <%= item.is_avaliable %>  </p>
 <p> <%= "Borrow Count" %> : <%= item.borrow_count %>  </p>
-<p> <%= "Last Borrow" %> : <%= item.last_borrow %>  </p>
 <p> <%= "Held User" %> : <%= item.held_user %>  </p>
 <p> <%= "Penalty" %> : <%= item.penalty %>  </p>
 <%
@@ -78,7 +77,6 @@
 <h3>Publisher Only:</h3>
 <p> <%= "Is Avaliable" %> : <%= item.is_avaliable %>  </p>
 <p> <%= "Borrow Count" %> : <%= item.borrow_count %>  </p>
-<p> <%= "Last Borrow" %> : <%= item.last_borrow %>  </p>
 <p> <%= "Penalty" %> : <%= item.penalty %>  </p>
 <%
         }

@@ -8,20 +8,19 @@ public class book
     public String title;
     public Date  publication_date;
     public String author_name;
-    public Integer publisher;
+    public String publisher;
     public String genre;
     public String topics;
     public Boolean is_avaliable;
     public Boolean is_borrowed;
     public Integer borrow_count;
-    public Integer last_borrow;
     public Boolean is_held;
     public Integer held_user;
     public double penalty;
 
 
 
-    public book(Integer id, String title, Date publication, String author, Integer publisher, String genre, String topics, Boolean borrowed, Boolean held, Integer huser, Integer bcount, Integer lborrow, Double pen, Boolean isaval) {
+    public book(Integer id, String title, Date publication, String author, String publisher, String genre, String topics, Boolean borrowed, Boolean held, Integer huser, Integer bcount, Double pen, Boolean isaval) {
         this.book_id = id;
         this.title=title;
         this.publication_date=publication;
@@ -33,7 +32,6 @@ public class book
         this.is_held = held;
         this.held_user = huser;
         this.borrow_count = bcount;
-        this.last_borrow = lborrow;
         this.penalty = pen;
         this.is_avaliable = isaval;
     }
