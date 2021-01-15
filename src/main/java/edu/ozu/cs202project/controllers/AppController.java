@@ -510,7 +510,7 @@ public class AppController
                             row.getString("genre_name"), row.getString("topic_name"), row.getString("is_avaliable"), row.getString("publication_date") };
                 });
 
-        model.addAttribute("itemData", data.toArray(new String[0][2]));
+        model.addAttribute("itemData", data.toArray(new String[0][10]));
 
         search(model);
         return "search";
@@ -594,6 +594,83 @@ public class AppController
         model.addAttribute("itemData", data.toArray(new String[0][2]));
 
         return "publisher_borrowed";
+    }
+
+
+    //Statistic Pages
+
+    @GetMapping("/stats_most_genres")
+    public String stats_most_genres(ModelMap model)
+    {
+        if((Integer) model.getAttribute("userType") == 3) {
+            List<String[]> data = conn.query("SELECT genre_id, genre_name, COUNT(*) FROM Books, Genres, Borrows WHERE genre = genre_id AND book = book_id GROUP BY genre_id",
+                    (row, index) -> {
+                        return new String[]{row.getString("genre_id"), row.getString("genre_name"), row.getString("COUNT(*)")};
+                    });
+            model.addAttribute("itemData", data.toArray(new String[0][2]));
+            return "stats_most_genres";
+        }
+        return "user_menu";
+    }
+
+    @GetMapping("/stats_most_books")
+    public String stats_most_books(ModelMap model)
+    {
+        if((Integer) model.getAttribute("userType") == 3) {
+            java.sql.Timestamp timestamp = java.sql.Timestamp.valueOf(localDateTime.minusMonths(3));
+            List<String[]> data = conn.query("SELECT book_id, title, COUNT(*) FROM Books, Borrows WHERE book = book_id AND borrow_date >= '" + timestamp + "' GROUP BY book_id",
+                    (row, index) -> {
+                        return new String[]{row.getString("book_id"), row.getString("title"), row.getString("COUNT(*)")};
+                    });
+            model.addAttribute("itemData", data.toArray(new String[0][2]));
+            return "stats_most_books";
+        }
+        return "user_menu";
+    }
+
+    @GetMapping("/stats_most_publisher")
+    public String stats_most_publisher(ModelMap model)
+    {
+        if((Integer) model.getAttribute("userType") == 3) {
+            java.sql.Timestamp timestamp = java.sql.Timestamp.valueOf(localDateTime.minusMonths(3));
+            List<String[]> data = conn.query("SELECT user_id, name, COUNT(*) FROM Books, Borrows, Users WHERE book = book_id AND publisher = user_id GROUP BY user_id",
+                    (row, index) -> {
+                        return new String[]{row.getString("user_id"), row.getString("name"), row.getString("COUNT(*)")};
+                    });
+            model.addAttribute("itemData", data.toArray(new String[0][2]));
+            return "stats_most_publisher";
+        }
+        return "user_menu";
+    }
+
+    @GetMapping("/overdue_book_number")
+    public String overdue_book_number(ModelMap model)
+    {
+        if((Integer) model.getAttribute("userType") == 3) {
+            java.sql.Timestamp timestamp = java.sql.Timestamp.valueOf(localDateTime);
+            List<String[]> data = conn.query("SELECT COUNT(*) FROM Books, Borrows WHERE book = book_id AND expected_return_date < '" + timestamp + "'",
+                    (row, index) -> {
+                        return new String[]{row.getString("COUNT(*)")};
+                    });
+            model.addAttribute("itemData", data.toArray(new String[0][2]));
+            return "overdue_book_number";
+        }
+        return "user_menu";
+    }
+
+    @GetMapping("/borrowers_most_book")
+    public String borrowers_most_book(ModelMap model)
+    {
+        if((Integer) model.getAttribute("userType") == 3) {
+            java.sql.Timestamp timestamp = java.sql.Timestamp.valueOf(localDateTime);
+            List<String[]> data = conn.query("SELECT user_id, username, COUNT(*) FROM Borrows, Users WHERE borrower = user_id AND book = (SELECT book_id FROM Books, Borrows WHERE book = book_id GROUP BY book_id ORDER BY COUNT(*) DESC LIMIT 1) GROUP BY user_id",
+                    (row, index) -> {
+                        return new String[]{row.getString("user_id"), row.getString("username"), row.getString("COUNT(*)")};
+                    });
+            model.addAttribute("itemData", data.toArray(new String[0][2]));
+            return "borrowers_most_book";
+        }
+        return "user_menu";
     }
 
 }
