@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    String [][] data = (String[][]) session.getAttribute("itemData");
+    String [][] data = (String[][]) session.getAttribute("searchData");
 %>
 <html>
 <head>

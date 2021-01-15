@@ -23,7 +23,7 @@ import java.util.Date;
 import java.util.List;
 
 @Controller
-@SessionAttributes({ "userId", "userType", "itemData", "bookData"})
+@SessionAttributes({ "userId", "userType", "itemData", "bookData", "searchData"})
 public class AppController
 {
     LocalDateTime localDateTime = LocalDateTime.now();
@@ -253,6 +253,7 @@ public class AppController
 
     @PostMapping("/publisher_search")
     public String publisherSearchPost (ModelMap model, @RequestParam String publisher, @RequestParam String genre){
+        model.getAttribute("itemData");
         if (publisher.isEmpty()){
             String publisherEmpty = "";
             publisher = publisherEmpty;
@@ -534,7 +535,7 @@ public class AppController
 
         if((Integer) model.getAttribute("userType") == 1){
 
-            List<String[]> data = conn.query("SELECT DISTINCT book_id,title,author_name,genre_name,topic_name,is_borrowed,publication_date from books,genres,authors,topics where books.genre = genres.genre_id and\n" +
+            List<String[]> data = conn.query("SELECT DISTINCT book_id,title,author_name,genre_name,topic_name,is_borrowed,is_avaliable,publication_date from books,genres,authors,topics where books.genre = genres.genre_id and\n" +
                             "books.author = authors.author_id and books.topic = topics.topic_id and title like '%"+title+"%' and author_name like '%"+author+"%' and genre_name like '%"+genre+"%' and topic_name like '%"+topic+"%' " +
                             "and is_borrowed = " + is_borrowed + " and publication_date like '%"+year_published+"%' ",
                     (row, index) -> {
@@ -542,7 +543,7 @@ public class AppController
                                 row.getString("genre_name"), row.getString("topic_name"), row.getString("is_avaliable"), row.getString("publication_date") };
                     });
 
-            model.addAttribute("itemData", data.toArray(new String[0][2]));
+            model.addAttribute("searchData", data.toArray(new String[0][2]));
 
         } else {
             List<String[]> data = conn.query("SELECT DISTINCT book_id,title,author_name,genre_name,topic_name,is_avaliable,publication_date from books,genres,authors,topics where books.genre = genres.genre_id and\n" +
@@ -553,7 +554,7 @@ public class AppController
                                 row.getString("genre_name"), row.getString("topic_name"), row.getString("is_avaliable"), row.getString("publication_date") };
                     });
 
-        model.addAttribute("itemData", data.toArray(new String[0][10]));
+        model.addAttribute("searchData", data.toArray(new String[0][2]));
 
         }
 
