@@ -25,8 +25,9 @@
 <% }if (user_type == 2){%>
 <p> ÖzÜ Library Publisher Menu </p>
 <p> User : <%= user_id %> </p>
-<button type="button" onclick="location.href = '/list';">Available Books</button>
+<button type="button" onclick="location.href = '/list';">My Books</button>
 <button type="button" onclick="location.href = '/publisher_borrowed';">Borrowed Books</button>
+<button type="button" onclick="location.href = '/addBook';">Add New Book</button>
 <button type="button" onclick="location.href = '/request';">Request</button>
 <button type="button" onclick="location.href = '/search';">Search</button>
 <button type="button" onclick="location.href = '/logout';">Logout</button>

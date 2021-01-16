@@ -12,11 +12,13 @@
     <title>Publisher's Borrowed Books</title>
 </head>
 <body>
+<button type="button" onclick="location.href = '/user_menu';">Menu</button>
+<h2>Borrowed Books</h2>
 <%
     if(user_type == 2){
 
 %>
-<p> Title : Borrow Date : Username : Expected Return Date </p>
+<h3> Title : Borrow Date : Username : Expected Return Date </h3>
 <%
     String[][] data = (String[][]) session.getAttribute("itemData");
 
@@ -35,6 +37,5 @@
 <%
         }
 %>
-<button type="button" onclick="location.href = '/user_menu';">Menu</button>
 </body>
 </html>

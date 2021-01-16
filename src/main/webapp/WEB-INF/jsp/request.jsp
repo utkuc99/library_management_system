@@ -10,6 +10,9 @@
 <head>
     <title>Request</title>
 </head>
+<body>
+<button type="button" onclick="location.href = '/user_menu';">Menu</button>
+<h2>Request Availability Change</h2>
 <%
     String bookID = (String) session.getAttribute("bookID");
     String request_type = (String) session.getAttribute("request_type");
@@ -25,16 +28,13 @@
     }
 %>
 <form method="post">
-
     Book ID : <input type="text" name="bookID"/>
-    Request Type (1 for Addition, 0 for deletion): <input type="text" name="request_type"/>
-
+    </br></br>
+    Request Type (0: Make Unavailable, 1: Make Available): <input type="text" name="request_type"/>
+    </br></br>
     <input type="submit" name="request" value="Request"/>
 </form>
-<form method="post">
-    <button type="button" onclick="location.href = '/user_menu';">Menu</button>
-    <button type="button" onclick="location.href = '/addBook';">Add New Book</button>
-</form>
+
 
 </body>
 </html>

@@ -30,7 +30,7 @@
 </form>
 
 <form method="post">
-    <p> Title : Author : Genre : Topic : Currently Available : Year Published </p>
+    <h3> Title : Author : Genre : Topic : Currently Available : Year Published </h3>
     <%
         if (data != null){
             for(String [] item : data){

@@ -421,14 +421,16 @@ public class AppController
     public String requestReject(ModelMap model, @RequestParam String bookId, @RequestParam String requestId, @RequestParam String request_type){
         LocalDateTime localDateTime = LocalDateTime.now();
 
-        conn.update("UPDATE Requests SET result = 0, result_date = ?, result_user = ? WHERE request_id = ?",
-                localDateTime,model.getAttribute("userId"),requestId);
-
         if(request_type.equals("1")){
-            conn.update("UPDATE Books SET is_avaliable = 0 WHERE book_id = ? ",bookId);
-        } else {
-            conn.update("UPDATE Books SET is_avaliable = 1 WHERE book_id = ? ",bookId);
+            conn.update("UPDATE Requests SET result = 0, result_date = ?, result_user = ?, book_id = NULL  WHERE request_id = ?", localDateTime,model.getAttribute("userId"),requestId);
+            conn.update("DELETE FROM Books WHERE book_id = ? ",bookId);
+        }else {
+            conn.update("UPDATE Requests SET result = 0, result_date = ?, result_user = ?  WHERE request_id = ?", localDateTime,model.getAttribute("userId"),requestId);
         }
+
+
+
+
         requests(model);
         return "requests";
     }
@@ -501,12 +503,28 @@ public class AppController
     {
         LocalDateTime localDateTime = LocalDateTime.now();
 
+        conn.update("INSERT IGNORE INTO authors (author_name) VALUES (?)", author_name);
+        conn.update("INSERT IGNORE INTO genres (genre_name) VALUES (?)", genre);
+        conn.update("INSERT IGNORE INTO topics (topic_name) VALUES (?)", topics);
+
+        List<Integer> author_id = conn.query("SELECT author_id FROM authors WHERE author_name = '" + author_name + "'",
+                (row, index) -> {
+                    return row.getInt("author_id");
+                });
+        List<Integer> genre_id = conn.query("SELECT genre_id FROM genres WHERE genre_name = '" + genre + "'",
+                (row, index) -> {
+                    return row.getInt("genre_id");
+                });
+        List<Integer> topic_id = conn.query("SELECT topic_id FROM topics WHERE topic_name = '" + topics + "'",
+                (row, index) -> {
+                    return row.getInt("topic_id");
+                });
+
         if((Integer)model.getAttribute("userType") == 2) {
 
-
             conn.update("INSERT INTO Books (book_id,title,publication_date,author,publisher,genre,topic,is_avaliable,is_borrowed,borrow_count," +
-                    "is_held,held_user,penalty) VALUES (book_id,?,?,?,?,?,?,0,is_borrowed,borrow_count,is_held,held_user,penalty)",title,publication_date,author_name,
-                    model.getAttribute("userId"),genre,topics);
+                    "is_held,held_user,penalty) VALUES (book_id,?,?,?,?,?,?,0,is_borrowed,borrow_count,is_held,held_user,penalty)",title,publication_date, author_id.get(0),
+                    model.getAttribute("userId"),genre_id.get(0),topic_id.get(0));
 
             List<String[]> data = conn.query("SELECT book_id FROM Books WHERE title = '" + title +"'",
                     (row, index) -> {
@@ -528,8 +546,8 @@ public class AppController
                 return "addBook";
             }
             conn.update("INSERT INTO Books (book_id,title,publication_date,author,publisher,genre,topic,is_avaliable,is_borrowed,borrow_count," +
-                            "is_held,held_user,penalty) VALUES (book_id,?,?,?,?,?,?,1,is_borrowed,borrow_count,is_held,held_user,penalty)",title,publication_date,author_name,
-                    publisher,genre,topics);
+                            "is_held,held_user,penalty) VALUES (book_id,?,?,?,?,?,?,1,is_borrowed,borrow_count,is_held,held_user,penalty)",title,publication_date,author_id.get(0),
+                    publisher,genre_id.get(0),topic_id.get(0));
             return "user_menu";
         }
     }
