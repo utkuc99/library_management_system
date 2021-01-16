@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +17,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="jsf" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -57,9 +57,20 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="YourNameCs202ProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="cs202-project" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.ozu.cs202project.YourNameCs202ProjectApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="edu.ozu.cs202project.Group23Cs202ProjectApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -77,7 +88,7 @@
       </list>
     </option>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -252,14 +263,7 @@
       <option name="project" value="LOCAL" />
       <updated>1610814383125</updated>
     </task>
-    <task id="LOCAL-00023" summary="hash added (disabled)">
-      <created>1610815588704</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1610815588704</updated>
-    </task>
-    <option name="localTasksCounter" value="24" />
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,13 +274,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="User menü ekledim&#10;userların book'ları listelemesi için sayfa ekledim&#10;her book'un detaylı görülebilmesi için sayfa ekledim&#10;userların borrow geçmişini görmesi için sayfa ekledim" />
@@ -301,83 +304,6 @@
     <MESSAGE value="ui improvements&#10;added delete when add book request is declined&#10;when adding a book genre topic and author can be entered by name now" />
     <MESSAGE value="user statistics added" />
     <MESSAGE value="ui fixes" />
-    <MESSAGE value="hash added (disabled)" />
-    <option name="LAST_COMMIT_MESSAGE" value="hash added (disabled)" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="653" y="241" key="#com.intellij.ide.util.MemberChooser" timestamp="1610805092992">
-      <screen x="0" y="0" width="1680" height="1050" />
-    </state>
-    <state x="653" y="241" key="#com.intellij.ide.util.MemberChooser/0.0.1680.1050@0.0.1680.1050" timestamp="1610805092992" />
-    <state x="479" y="131" key="CommitChangelistDialog2" timestamp="1610815588520">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="419" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1610801346061" />
-    <state x="479" y="131" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1610815588520" />
-    <state width="1381" height="287" key="GridCell.Tab.0.bottom" timestamp="1610818695162">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1205" height="298" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1610808939432" />
-    <state width="1381" height="287" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1610818695162" />
-    <state width="1205" height="298" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1610808830782" />
-    <state width="1381" height="287" key="GridCell.Tab.0.bottom/0.23.1920.1057@0.23.1920.1057" timestamp="1610818052435" />
-    <state width="1381" height="287" key="GridCell.Tab.0.center" timestamp="1610818695160">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1205" height="298" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1610808939431" />
-    <state width="1381" height="287" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1610818695160" />
-    <state width="1205" height="298" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1610808830781" />
-    <state width="1381" height="287" key="GridCell.Tab.0.center/0.23.1920.1057@0.23.1920.1057" timestamp="1610818052434" />
-    <state width="1381" height="287" key="GridCell.Tab.0.left" timestamp="1610818695159">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1205" height="298" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1610808939430" />
-    <state width="1381" height="287" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1610818695159" />
-    <state width="1205" height="298" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1610808830780" />
-    <state width="1381" height="287" key="GridCell.Tab.0.left/0.23.1920.1057@0.23.1920.1057" timestamp="1610818052433" />
-    <state width="1381" height="287" key="GridCell.Tab.0.right" timestamp="1610818695161">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1205" height="298" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1610808939431" />
-    <state width="1381" height="287" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1610818695161" />
-    <state width="1205" height="298" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1610808830781" />
-    <state width="1381" height="287" key="GridCell.Tab.0.right/0.23.1920.1057@0.23.1920.1057" timestamp="1610818052434" />
-    <state width="1381" height="287" key="GridCell.Tab.1.bottom" timestamp="1610818695165">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1205" height="298" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1610808939434" />
-    <state width="1381" height="287" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1610818695165" />
-    <state width="1205" height="298" key="GridCell.Tab.1.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1610808830785" />
-    <state width="1381" height="287" key="GridCell.Tab.1.bottom/0.23.1920.1057@0.23.1920.1057" timestamp="1610818052439" />
-    <state width="1381" height="287" key="GridCell.Tab.1.center" timestamp="1610818695163">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1205" height="298" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1610808939433" />
-    <state width="1381" height="287" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1610818695163" />
-    <state width="1205" height="298" key="GridCell.Tab.1.center/0.23.1680.1027@0.23.1680.1027" timestamp="1610808830784" />
-    <state width="1381" height="287" key="GridCell.Tab.1.center/0.23.1920.1057@0.23.1920.1057" timestamp="1610818052437" />
-    <state width="1381" height="287" key="GridCell.Tab.1.left" timestamp="1610818695163">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1205" height="298" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1610808939432" />
-    <state width="1381" height="287" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1610818695163" />
-    <state width="1205" height="298" key="GridCell.Tab.1.left/0.23.1680.1027@0.23.1680.1027" timestamp="1610808830783" />
-    <state width="1381" height="287" key="GridCell.Tab.1.left/0.23.1920.1057@0.23.1920.1057" timestamp="1610818052436" />
-    <state width="1381" height="287" key="GridCell.Tab.1.right" timestamp="1610818695164">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1205" height="298" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1610808939433" />
-    <state width="1381" height="287" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1610818695164" />
-    <state width="1205" height="298" key="GridCell.Tab.1.right/0.23.1680.1027@0.23.1680.1027" timestamp="1610808830784" />
-    <state width="1381" height="287" key="GridCell.Tab.1.right/0.23.1920.1057@0.23.1920.1057" timestamp="1610818052438" />
-    <state x="503" y="273" key="Vcs.Push.Dialog.v2" timestamp="1610815590511">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610801352104" />
-    <state x="503" y="273" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1610815590511" />
-    <state x="389" y="105" key="new project wizard" timestamp="1610817199542">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="389" y="105" key="new project wizard/0.0.1920.1080@0.0.1920.1080" timestamp="1610817199542" />
+    <option name="LAST_COMMIT_MESSAGE" value="ui fixes" />
   </component>
 </project>
