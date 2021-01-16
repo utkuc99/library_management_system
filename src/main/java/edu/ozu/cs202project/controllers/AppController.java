@@ -400,6 +400,7 @@ public class AppController
 
         return "requests";
     }
+
     @PostMapping(value = "/requests", params = "accept")
     public String requestAccept(ModelMap model, @RequestParam String requestId, @RequestParam String bookId, @RequestParam String request_type){
         LocalDateTime localDateTime = LocalDateTime.now();
@@ -430,6 +431,42 @@ public class AppController
         }
         requests(model);
         return "requests";
+    }
+
+    @GetMapping("/enable_book")
+    public String enable_book(ModelMap model)
+    {
+        return "enable_book";
+    }
+
+    @PostMapping(value = "/enable_book", params = "add")
+    public String enable_bookPost(ModelMap model, @RequestParam String bookid)
+    {
+        LocalDateTime localDateTime = LocalDateTime.now();
+
+        if((Integer)model.getAttribute("userType") == 3) {
+            conn.update("UPDATE Books SET is_avaliable = 1 WHERE book_id = ?", bookid);
+            return "user_menu";
+        }
+        return "enable_book";
+    }
+
+    @GetMapping("/disable_book")
+    public String removeBook(ModelMap model)
+    {
+        return "disable_book";
+    }
+
+    @PostMapping(value = "/disable_book", params = "add")
+    public String removeBookPost(ModelMap model, @RequestParam String bookid)
+    {
+        LocalDateTime localDateTime = LocalDateTime.now();
+
+        if((Integer)model.getAttribute("userType") == 3) {
+            conn.update("UPDATE Books SET is_avaliable = 0 WHERE book_id = ?", bookid);
+            return "user_menu";
+        }
+        return "disable_book";
     }
 
 
@@ -522,11 +559,9 @@ public class AppController
             topic = topicEmpty;
         }
         if (available == false){
-            is_available = "0";
-            is_borrowed = "1";
+            is_borrowed = "";
         } else {
-            is_available = "1";
-            is_borrowed = "0";
+            is_borrowed = "and is_borrowed = 0";
         }
         if (year_published.isEmpty()){
             String publication_date = "";
@@ -537,7 +572,7 @@ public class AppController
 
             List<String[]> data = conn.query("SELECT DISTINCT book_id,title,author_name,genre_name,topic_name,is_borrowed,is_avaliable,publication_date from books,genres,authors,topics where books.genre = genres.genre_id and\n" +
                             "books.author = authors.author_id and books.topic = topics.topic_id and title like '%"+title+"%' and author_name like '%"+author+"%' and genre_name like '%"+genre+"%' and topic_name like '%"+topic+"%' " +
-                            "and is_borrowed = " + is_borrowed + " and publication_date like '%"+year_published+"%' ",
+                            "and is_avaliable = 1 " + is_borrowed + " and publication_date like '%"+year_published+"%' ",
                     (row, index) -> {
                         return new String[]{ row.getString("book_id"), row.getString("title"), row.getString("author_name"),
                                 row.getString("genre_name"), row.getString("topic_name"), row.getString("is_avaliable"), row.getString("publication_date") };
@@ -548,7 +583,7 @@ public class AppController
         } else {
             List<String[]> data = conn.query("SELECT DISTINCT book_id,title,author_name,genre_name,topic_name,is_avaliable,publication_date from books,genres,authors,topics where books.genre = genres.genre_id and\n" +
                             "books.author = authors.author_id and books.topic = topics.topic_id and title like '%"+title+"%' and author_name like '%"+author+"%' and genre_name like '%"+genre+"%' and topic_name like '%"+topic+"%' " +
-                            "and is_avaliable = " + is_available + " and publication_date like '%"+year_published+"%' ",
+                            "and publication_date like '%"+year_published+"%' ",
                     (row, index) -> {
                         return new String[]{ row.getString("book_id"), row.getString("title"), row.getString("author_name"),
                                 row.getString("genre_name"), row.getString("topic_name"), row.getString("is_avaliable"), row.getString("publication_date") };

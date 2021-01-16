@@ -13,28 +13,46 @@
     <title>Add New Book</title>
 </head>
 <body>
+<button type="button" onclick="location.href = '/user_menu';">Menu</button>
+<h2>Add New Book</h2>
 <form method="post">
 <%
     if (user_type == 3){
 %>
     Title : <input type="text" name="title"/>
+    </br></br>
     Publication Date : <input type="text" name="publication_date"/>
+    </br></br>
     Author Name  : <input type="text" name="author_name"/>
+    </br></br>
     Publisher : <input type="text" name="publisher"/>
+    </br></br>
     Genre : <input type="text" name="genre"/>
+    </br></br>
     Topic : <input type="text" name="topics"/>
+    </br></br>
     <input type="submit" name="add" value="Add"/>
 <%
-    } else {
+    } if (user_type == 2){
 %>
     Title : <input type="text" name="title"/>
+    </br></br>
     Publication Date : <input type="text" name="publication_date"/>
+    </br></br>
     Author Name  : <input type="text" name="author_name"/>
+    </br></br>
     Genre : <input type="text" name="genre"/>
+    </br></br>
     Topic : <input type="text" name="topics"/>
+    </br></br>
     <input type="hidden" name="publisher" readonly="readonly"/>
+    </br></br>
     <input type="submit" name="add" value="Add"/>
 <%
+    } if (user_type == 1){
+%>
+    <h3>You are not allowed to do this operation!</h3>
+    <%
     }
 %>
 

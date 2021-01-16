@@ -11,6 +11,8 @@
     <title>Publisher Sign-up</title>
 </head>
 <body>
+<button type="button" onclick="location.href = '/user_menu';">Menu</button>
+<h2>Publisher Sign-up</h2>
 <%
     String username = (String) session.getAttribute("username");
     String password = (String) session.getAttribute("password");
@@ -25,13 +27,13 @@
 %>
 <form method = post>
     Name : <input type="text" name = "name"/>
-
+    </br></br>
     Phone Number : <input type="text" name= "phone_number"/>
-
+    </br></br>
     Username : <input type="text" name="username"/>
-
+    </br></br>
     Password : <input type="password" name="password"/>
-
+    </br></br>
     <input type="submit" name="register" value="Register">
 </form>
 </body>

@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="Filter">
+    <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/disable_book.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/enable_book.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/search.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/addBook.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/addBook.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/publisher_signup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/publisher_signup.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signUp.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signUp.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_menu.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +85,7 @@
       </list>
     </option>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -224,12 +229,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="User menü ekledim&#10;userların book'ları listelemesi için sayfa ekledim&#10;her book'un detaylı görülebilmesi için sayfa ekledim&#10;userların borrow geçmişini görmesi için sayfa ekledim" />
@@ -250,5 +256,47 @@
     <MESSAGE value="borrowed_books penalty text added" />
     <MESSAGE value="changed mysql querys" />
     <option name="LAST_COMMIT_MESSAGE" value="changed mysql querys" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="819" height="298" key="GridCell.Tab.0.bottom" timestamp="1610787829529">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="819" height="298" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1610787829529" />
+    <state width="819" height="298" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1610787170598" />
+    <state width="819" height="298" key="GridCell.Tab.0.center" timestamp="1610787829528">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="819" height="298" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1610787829528" />
+    <state width="819" height="298" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1610787170596" />
+    <state width="819" height="298" key="GridCell.Tab.0.left" timestamp="1610787829527">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="819" height="298" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1610787829527" />
+    <state width="819" height="298" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1610787170595" />
+    <state width="819" height="298" key="GridCell.Tab.0.right" timestamp="1610787829529">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="819" height="298" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1610787829529" />
+    <state width="819" height="298" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1610787170597" />
+    <state width="819" height="298" key="GridCell.Tab.1.bottom" timestamp="1610787829532">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="819" height="298" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1610787829532" />
+    <state width="819" height="298" key="GridCell.Tab.1.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1610787170600" />
+    <state width="819" height="298" key="GridCell.Tab.1.center" timestamp="1610787829530">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="819" height="298" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1610787829530" />
+    <state width="819" height="298" key="GridCell.Tab.1.center/0.23.1680.1027@0.23.1680.1027" timestamp="1610787170599" />
+    <state width="819" height="298" key="GridCell.Tab.1.left" timestamp="1610787829530">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="819" height="298" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1610787829530" />
+    <state width="819" height="298" key="GridCell.Tab.1.left/0.23.1680.1027@0.23.1680.1027" timestamp="1610787170598" />
+    <state width="819" height="298" key="GridCell.Tab.1.right" timestamp="1610787829531">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="819" height="298" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1610787829531" />
+    <state width="819" height="298" key="GridCell.Tab.1.right/0.23.1680.1027@0.23.1680.1027" timestamp="1610787170599" />
   </component>
 </project>
