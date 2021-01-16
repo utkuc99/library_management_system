@@ -13,8 +13,8 @@
     <title>User Menu</title>
 </head>
 <body>
+<h2> ÖzÜ Library Manager Statistics Menu </h2>
 <%if (user_type == 3){%>
-<p> ÖzÜ Library Manager Statistics Menu </p>
 <p> User : <%= user_id %> </p>
 <button type="button" onclick="location.href = '/stats_most_genres';">Most Borrowed Genres</button>
 <button type="button" onclick="location.href = '/stats_most_books';">Most Borrowed Books (Last 3 Months)</button>
@@ -22,7 +22,11 @@
 <button type="button" onclick="location.href = '/overdue_book_number';">Overdue Book Number</button>
 <button type="button" onclick="location.href = '/borrowers_most_book';">Borrowers of Most Borrowed Book</button>
 <button type="button" onclick="location.href = '/stats_overdue_number';">Number Of Times That Each Book Has Been Returned Late</button>
-<% }%>
-
+<% }else {
+%>
+<h3>You are not allowed to do this operation!</h3>
+<%
+    }
+%>
 </body>
 </html>

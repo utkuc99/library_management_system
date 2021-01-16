@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% Integer user_type = (Integer) session.getAttribute("userType"); %>
 <html>
 <head>
     <title>Publisher Sign-up</title>
@@ -23,7 +24,7 @@
 %>
 <p style="color: red">${error}</p>
 <%
-    }
+    } if(user_type == 3){
 %>
 <form method = post>
     Name : <input type="text" name = "name"/>
@@ -35,6 +36,13 @@
     Password : <input type="password" name="password"/>
     </br></br>
     <input type="submit" name="register" value="Register">
+    <%
+    } else {
+    %>
+    <h3>You are not allowed to do this operation!</h3>
+<%
+    }
+%>
 </form>
 </body>
 </html>

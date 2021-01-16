@@ -13,6 +13,7 @@
     <title>User Details Page</title>
 </head>
 <body>
+<button type="button" onclick="location.href = '/user_menu';">Menu</button>
 <%
     user[] data = (user[]) session.getAttribute("itemData");
     Integer user_id = (Integer) session.getAttribute("userId");
@@ -21,17 +22,18 @@
     if (data[0] != null) {
         for (user item : data)
         {
+            if(user_type == 3){
 %>
 <p> <%= "username" %> : <%= item.user_name %>  </p>
 <p> <%= "Name" %> : <%= item.name %>  </p>
 <p> <%= "Surname" %> : <%= item.surname %>  </p>
 <p> <%= "Phone Number" %> : <%= item.phone_number %>  </p>
 <p> <%= "Birthdate" %> : <%= item.birthdate %>  </p>
-<%
-        if(user_type == 3){
-%>
-<p> Library Manager Only  </p>
 <button type="button" onclick="location.href = '/borrow_hist_admin?id=<%= item.user_id %>';">Borrow History</button>
+<%
+            } else {
+%>
+<h3>You are not allowed to do this operation!</h3>
 <%
             }
         }

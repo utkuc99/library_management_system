@@ -502,6 +502,8 @@ public class AppController
         LocalDateTime localDateTime = LocalDateTime.now();
 
         if((Integer)model.getAttribute("userType") == 2) {
+
+
             conn.update("INSERT INTO Books (book_id,title,publication_date,author,publisher,genre,topic,is_avaliable,is_borrowed,borrow_count," +
                     "is_held,held_user,penalty) VALUES (book_id,?,?,?,?,?,?,0,is_borrowed,borrow_count,is_held,held_user,penalty)",title,publication_date,author_name,
                     model.getAttribute("userId"),genre,topics);

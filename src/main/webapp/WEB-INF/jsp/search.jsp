@@ -35,7 +35,7 @@
         if (data != null){
             for(String [] item : data){
               %>
-    <p> <%= item[0] %> : <%= item[1] %> : <%= item[2] %> : <%= item[3] %> : <%= item[4] %> : <%= item[5] %> : <%= item[6]%> </p>
+    <p> <%= item[0] %> : <%= item[1] %> : <%= item[2] %> : <%= item[3] %> : <%= item[4] %> : <%= item[5] %> : <%= item[6]%> : <button type="button" onclick="location.href = '/book?id=<%= item[0] %>';">More</button></p>
     <%
             }
         }

@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/disable_book.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/enable_book.jsp" afterDir="false" />
+    <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="hotfix and ui upgrades">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/addBook.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/addBook.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/borrowed_books.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/borrowed_books.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/publisher_borrowed.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/publisher_borrowed.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/publisher_signup.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/publisher_signup.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signUp.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/signUp.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user_menu.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/requests.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/requests.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/search.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/search.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/statistics_menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/statistics_menu.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/user.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/users.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" afterDir="false" />
     </list>
@@ -218,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610713985215</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="hotfix and ui upgrades">
+      <created>1610787909967</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1610787909967</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,48 +263,57 @@
     <MESSAGE value="print silindi basit düzeltme" />
     <MESSAGE value="borrowed_books penalty text added" />
     <MESSAGE value="changed mysql querys" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed mysql querys" />
+    <MESSAGE value="hotfix and ui upgrades" />
+    <option name="LAST_COMMIT_MESSAGE" value="hotfix and ui upgrades" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="819" height="298" key="GridCell.Tab.0.bottom" timestamp="1610787829529">
+    <state x="419" y="127" key="CommitChangelistDialog2" timestamp="1610789962971">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="819" height="298" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1610787829529" />
+    <state x="419" y="127" key="CommitChangelistDialog2/0.0.1680.1050@0.0.1680.1050" timestamp="1610789962971" />
+    <state width="819" height="298" key="GridCell.Tab.0.bottom" timestamp="1610792339790">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="819" height="298" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1610792339790" />
     <state width="819" height="298" key="GridCell.Tab.0.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1610787170598" />
-    <state width="819" height="298" key="GridCell.Tab.0.center" timestamp="1610787829528">
+    <state width="819" height="298" key="GridCell.Tab.0.center" timestamp="1610792339788">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="819" height="298" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1610787829528" />
+    <state width="819" height="298" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1610792339788" />
     <state width="819" height="298" key="GridCell.Tab.0.center/0.23.1680.1027@0.23.1680.1027" timestamp="1610787170596" />
-    <state width="819" height="298" key="GridCell.Tab.0.left" timestamp="1610787829527">
+    <state width="819" height="298" key="GridCell.Tab.0.left" timestamp="1610792339788">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="819" height="298" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1610787829527" />
+    <state width="819" height="298" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1610792339788" />
     <state width="819" height="298" key="GridCell.Tab.0.left/0.23.1680.1027@0.23.1680.1027" timestamp="1610787170595" />
-    <state width="819" height="298" key="GridCell.Tab.0.right" timestamp="1610787829529">
+    <state width="819" height="298" key="GridCell.Tab.0.right" timestamp="1610792339789">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="819" height="298" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1610787829529" />
+    <state width="819" height="298" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1610792339789" />
     <state width="819" height="298" key="GridCell.Tab.0.right/0.23.1680.1027@0.23.1680.1027" timestamp="1610787170597" />
-    <state width="819" height="298" key="GridCell.Tab.1.bottom" timestamp="1610787829532">
+    <state width="819" height="298" key="GridCell.Tab.1.bottom" timestamp="1610792339792">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="819" height="298" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1610787829532" />
+    <state width="819" height="298" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1610792339792" />
     <state width="819" height="298" key="GridCell.Tab.1.bottom/0.23.1680.1027@0.23.1680.1027" timestamp="1610787170600" />
-    <state width="819" height="298" key="GridCell.Tab.1.center" timestamp="1610787829530">
+    <state width="819" height="298" key="GridCell.Tab.1.center" timestamp="1610792339791">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="819" height="298" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1610787829530" />
+    <state width="819" height="298" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1610792339791" />
     <state width="819" height="298" key="GridCell.Tab.1.center/0.23.1680.1027@0.23.1680.1027" timestamp="1610787170599" />
-    <state width="819" height="298" key="GridCell.Tab.1.left" timestamp="1610787829530">
+    <state width="819" height="298" key="GridCell.Tab.1.left" timestamp="1610792339790">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="819" height="298" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1610787829530" />
+    <state width="819" height="298" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1610792339790" />
     <state width="819" height="298" key="GridCell.Tab.1.left/0.23.1680.1027@0.23.1680.1027" timestamp="1610787170598" />
-    <state width="819" height="298" key="GridCell.Tab.1.right" timestamp="1610787829531">
+    <state width="819" height="298" key="GridCell.Tab.1.right" timestamp="1610792339791">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state width="819" height="298" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1610787829531" />
+    <state width="819" height="298" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1610792339791" />
     <state width="819" height="298" key="GridCell.Tab.1.right/0.23.1680.1027@0.23.1680.1027" timestamp="1610787170599" />
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2" timestamp="1610788644772">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="440" y="265" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1610788644772" />
   </component>
 </project>
