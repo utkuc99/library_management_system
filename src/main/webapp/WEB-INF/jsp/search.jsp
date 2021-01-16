@@ -23,14 +23,14 @@
     Author : <input type="text" name="author"/>
     Genre : <input type="text" name="genre"/>
     Topic : <input type="text" name="topic"/>
-    Currently Available : <input type="checkbox" name="available"/>
+    Currently Not Booked : <input type="checkbox" name="available"/>
     Year Published : <input type="text" name="year_published"/>
     <input type="submit" name="searchBox" value="Search"/>
 
 </form>
 
 <form method="post">
-    <h3> Title : Author : Genre : Topic : Currently Available : Year Published </h3>
+    <h3> ID : Title : Author : Genre : Topic : Is Booked ? : Year Published </h3>
     <%
         if (data != null){
             for(String [] item : data){

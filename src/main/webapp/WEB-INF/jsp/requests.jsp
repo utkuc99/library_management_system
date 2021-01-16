@@ -17,6 +17,8 @@
     if(user_type == 3){
 
 %>
+<h4>Request Type 1: Making a book borrowable by the users or addition of a book.</h4>
+<h4>Request Type 2: Making a book not borrowable by the users.</h4>
 <h3> Request ID : Request Date : Requester ID : Book ID : Request Type : Result : Result Date : Result User </h3>
 <%
     String[][] data = (String[][]) session.getAttribute("itemData");

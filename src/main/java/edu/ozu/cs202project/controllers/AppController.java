@@ -707,7 +707,7 @@ public class AppController
     public String stats_most_genres(ModelMap model)
     {
         if((Integer) model.getAttribute("userType") == 3) {
-            List<String[]> data = conn.query("SELECT genre_id, genre_name, COUNT(*) FROM Books, Genres, Borrows WHERE genre = genre_id AND book = book_id GROUP BY genre_id",
+            List<String[]> data = conn.query("SELECT genre_id, genre_name, COUNT(*) FROM Books, Genres, Borrows WHERE genre = genre_id AND book = book_id GROUP BY genre_id ORDER BY COUNT(*) DESC",
                     (row, index) -> {
                         return new String[]{row.getString("genre_id"), row.getString("genre_name"), row.getString("COUNT(*)")};
                     });
@@ -722,7 +722,7 @@ public class AppController
     {
         if((Integer) model.getAttribute("userType") == 3) {
             java.sql.Timestamp timestamp = java.sql.Timestamp.valueOf(localDateTime.minusMonths(3));
-            List<String[]> data = conn.query("SELECT book_id, title, COUNT(*) FROM Books, Borrows WHERE book = book_id AND borrow_date >= '" + timestamp + "' GROUP BY book_id",
+            List<String[]> data = conn.query("SELECT book_id, title, COUNT(*) FROM Books, Borrows WHERE book = book_id AND borrow_date >= '" + timestamp + "' GROUP BY book_id ORDER BY COUNT(*) DESC",
                     (row, index) -> {
                         return new String[]{row.getString("book_id"), row.getString("title"), row.getString("COUNT(*)")};
                     });
@@ -737,7 +737,7 @@ public class AppController
     {
         if((Integer) model.getAttribute("userType") == 3) {
             java.sql.Timestamp timestamp = java.sql.Timestamp.valueOf(localDateTime.minusMonths(3));
-            List<String[]> data = conn.query("SELECT user_id, name, COUNT(*) FROM Books, Borrows, Users WHERE book = book_id AND publisher = user_id GROUP BY user_id",
+            List<String[]> data = conn.query("SELECT user_id, name, COUNT(*) FROM Books, Borrows, Users WHERE book = book_id AND publisher = user_id GROUP BY user_id ORDER BY COUNT(*) DESC",
                     (row, index) -> {
                         return new String[]{row.getString("user_id"), row.getString("name"), row.getString("COUNT(*)")};
                     });
@@ -782,7 +782,7 @@ public class AppController
     {
         if((Integer) model.getAttribute("userType") == 3) {
             java.sql.Timestamp timestamp = java.sql.Timestamp.valueOf(localDateTime);
-            List<String[]> data = conn.query("SELECT book_id, title, COUNT(*), borrow_count FROM Books, Borrows WHERE book = book_id AND real_return_date >= expected_return_date AND returned = 1 GROUP BY book_id",
+            List<String[]> data = conn.query("SELECT book_id, title, COUNT(*), borrow_count FROM Books, Borrows WHERE book = book_id AND real_return_date >= expected_return_date AND returned = 1 GROUP BY book_id ORDER BY COUNT(*) DESC",
                     (row, index) -> {
                         return new String[]{row.getString("book_id"), row.getString("title"), row.getString("borrow_count"), row.getString("COUNT(*)")};
                     });

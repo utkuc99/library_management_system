@@ -31,7 +31,6 @@
     %>
     : <button type="button" onclick="location.href = '/returnbook?id=<%= item[5] %>';">Return Book</button>
     <%}%>
-%>
 </p>
 <%
         }
