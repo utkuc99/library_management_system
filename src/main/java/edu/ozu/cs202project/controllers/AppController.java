@@ -363,6 +363,7 @@ public class AppController
                 return "publisher_signup";
             }
             else{
+                password = Salter.salt(password, "UtkuBurhan");
                 conn.update("INSERT INTO Users (user_id,name,surname,phone_number,birthdate,username,password,user_type) VALUES (user_id,?,surname,?,birthdate,?,?,2)",
                         name,phone_number,username,password);
                 return "publisher_signup_post";
