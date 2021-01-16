@@ -25,7 +25,7 @@
     </br></br>
     Author Name  : <input type="text" name="author_name"/>
     </br></br>
-    Publisher : <input type="text" name="publisher"/>
+    Publisher User ID: <input type="text" name="publisher"/>
     </br></br>
     Genre : <input type="text" name="genre"/>
     </br></br>

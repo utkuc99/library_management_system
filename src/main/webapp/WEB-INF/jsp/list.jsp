@@ -15,12 +15,12 @@
 <% Integer user_type = (Integer) session.getAttribute("userType");
     if(user_type == 1){
 %>
-<h3> Title : Author : More Detail</h3>
+<h3> ID : Title : Author : More Detail</h3>
 <%
     }
     if(user_type > 1){
 %>
-<h3> Title : Author : Availability : More Detail</h3>
+<h3> ID : Title : Author : Availability : More Detail</h3>
 <%
     }
     String[][] data = (String[][]) session.getAttribute("itemData");
@@ -31,12 +31,12 @@
         {
             if(user_type == 1){
 %>
-<p> <%= item[0] %> : <%= item[1] %> : <button type="button" onclick="location.href = '/book?id=<%= item[2] %>';">More</button></p>
+<p> <%= item[2] %> : <%= item[0] %> : <%= item[1] %> : <button type="button" onclick="location.href = '/book?id=<%= item[2] %>';">More</button></p>
 <%
             }
             if(user_type > 1){
 %>
-<p> <%= item[0] %> : <%= item[1] %> : <%= item[2] %> : <button type="button" onclick="location.href = '/book?id=<%= item[3] %>';">More</button></p>
+<p> <%= item[3] %> : <%= item[0] %> : <%= item[1] %> : <%= item[2] %> : <button type="button" onclick="location.href = '/book?id=<%= item[3] %>';">More</button></p>
 <%
             }
         }
