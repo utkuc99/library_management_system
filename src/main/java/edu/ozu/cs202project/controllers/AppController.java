@@ -56,7 +56,7 @@ public class AppController
     public String login(ModelMap model, @RequestParam String username, @RequestParam String password)
     {
 
-        //password = Salter.salt(password, "UtkuBurhan");
+        password = Salter.salt(password, "UtkuBurhan");
 
         user login_user = service.validate(username, password);
 
@@ -103,7 +103,7 @@ public class AppController
             return "signUp";
         }
         else{
-            //password = Salter.salt(password, "UtkuBurhan");
+            password = Salter.salt(password, "UtkuBurhan");
             conn.update("INSERT INTO Users (user_id,name,surname,phone_number,birthdate,username,password,user_type) VALUES (user_id,?,?,?,?,?,?,user_type)",
                     name,surname,phone_number,birthdate,username,password);
             return "post_signup";
