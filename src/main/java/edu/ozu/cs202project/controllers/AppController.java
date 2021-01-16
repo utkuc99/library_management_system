@@ -19,8 +19,11 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Period;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Controller
 @SessionAttributes({ "userId", "userType", "itemData", "bookData", "searchData"})
@@ -480,7 +483,7 @@ public class AppController
     {
         List<book> data = conn.query("SELECT * FROM Books, Authors, Genres, Topics, Users WHERE author = author_id and genre = genre_id and topic = topic_id and publisher = user_id and book_id = " + id,
                 (row, index) -> {
-                    if(row.getBoolean("is_avaliable") == true){
+                    if(row.getBoolean("is_avaliable") == true || (Integer)model.getAttribute("userType") > 1 ){
                         return new book(row.getInt("book_id"), row.getString("title"), row.getDate("publication_date"), row.getString("author_name"), row.getString("name"), row.getString("genre_name"), row.getString("topic_name"), row.getBoolean("is_borrowed"), row.getBoolean("is_held"), row.getInt("held_user"), row.getInt("borrow_count"), row.getDouble("penalty"), row.getBoolean("is_avaliable"));
                     }
                     return null;
@@ -779,12 +782,42 @@ public class AppController
     {
         if((Integer) model.getAttribute("userType") == 3) {
             java.sql.Timestamp timestamp = java.sql.Timestamp.valueOf(localDateTime);
-            List<String[]> data = conn.query("SELECT book_id, title, COUNT(*) FROM Books, Borrows WHERE book = book_id AND real_return_date >= expected_return_date AND returned = 1 GROUP BY book_id",
+            List<String[]> data = conn.query("SELECT book_id, title, COUNT(*), borrow_count FROM Books, Borrows WHERE book = book_id AND real_return_date >= expected_return_date AND returned = 1 GROUP BY book_id",
                     (row, index) -> {
-                        return new String[]{row.getString("book_id"), row.getString("title"), row.getString("COUNT(*)")};
+                        return new String[]{row.getString("book_id"), row.getString("title"), row.getString("borrow_count"), row.getString("COUNT(*)")};
                     });
             model.addAttribute("itemData", data.toArray(new String[0][2]));
             return "stats_overdue_number";
+        }
+        return "user_menu";
+    }
+
+    @GetMapping("/stats_user")
+    public String stats_user(ModelMap model)
+    {
+        if((Integer) model.getAttribute("userType") == 1) {
+            List<String[]> not_returned_late = conn.query("SELECT COUNT(*) FROM Users, Borrows WHERE borrower = user_id AND real_return_date >= expected_return_date AND returned = 0 and user_id = " + model.getAttribute("userId").toString(),
+                    (row, index) -> {
+                        return new String[]{row.getString("COUNT(*)")};
+                    });
+            List<String[]> returned_late = conn.query("SELECT COUNT(*) FROM Users, Borrows WHERE borrower = user_id AND real_return_date >= expected_return_date AND returned = 1 and user_id = " + model.getAttribute("userId").toString(),
+                    (row, index) -> {
+                        return new String[]{row.getString("COUNT(*)")};
+                    });
+            List<String[]> booked = conn.query("SELECT COUNT(*) FROM Users, Borrows WHERE borrower = user_id AND returned = 0 and user_id = " + model.getAttribute("userId").toString(),
+                    (row, index) -> {
+                        return new String[]{row.getString("COUNT(*)")};
+                    });
+            List<String[]> genre = conn.query("SELECT genre_name, COUNT(*) FROM Users, Borrows, Books, Genres WHERE book = book_id AND borrower = user_id AND genre = genre_id AND user_id = " + model.getAttribute("userId").toString() + " GROUP BY genre_id ORDER BY COUNT(*) DESC LIMIT 1",
+                    (row, index) -> {
+                        return new String[]{row.getString("genre_name"), row.getString("COUNT(*)")};
+                    });
+            String[] result_data[] = new String[][]{not_returned_late.get(0),
+                    returned_late.get(0),
+                    booked.get(0),
+                    genre.get(0)};
+            model.addAttribute("itemData", result_data);
+            return "stats_user";
         }
         return "user_menu";
     }

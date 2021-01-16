@@ -14,22 +14,18 @@
 <button type="button" onclick="location.href = '/user_menu';">Menu</button>
 <%  Integer user_type = (Integer) session.getAttribute("userType");
     String[][] data = (String[][]) session.getAttribute("itemData");
-    if(user_type == 3){
 %>
-<h2>Number Of Times That Each Book Has Been Returned Late</h2>
-<h3> Book ID : Title : Borrow Count : Late Count : More Info</h3>
+<h2>User Statistics</h2>
 <%
-    }
     if (data != null)
     {
-        for (String[] item : data)
-        {
-            if(user_type == 3){
 %>
-<p> <%= item[0] %> : <%= item[1] %> : <%= item[2] %> : <%= item[3] %> : <button type="button" onclick="location.href = '/book?id=<%= item[0] %>';">More</button></p>
+<p> Number of books that are overdue: <%= data[0][0] %> </p>
+<p> Number of books that were overdue: <%= data[1][0] %> </p>
+<p> Number of books that are booked right now: <%= data[2][0] %> </p>
+<p> Favorite Genre: <%= data[3][0] %> Number of bookings: <%= data[3][1] %> </p>
 <%
-            }
-        }
+
     }
 %>
 </body>
