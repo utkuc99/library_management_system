@@ -179,7 +179,7 @@ public class AppController
                     Duration duration = Duration.between(from, localDateTime);
                     Long dif = duration.toDays();
                     Double penalty = 0.0;
-                    if(dif > 0) {penalty = row.getDouble("penalty") * dif;}
+                    if(dif > 0) {penalty = 1.0 * dif;}
                     return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("expected_return_date"), row.getString("returned"), row.getString("book_id"), penalty.toString() };
                 });
 
@@ -289,7 +289,7 @@ public class AppController
                     Duration duration = Duration.between(from, localDateTime);
                     Long dif = duration.toDays();
                     Double penalty = 0.0;
-                    if(dif > 0) {penalty = row.getDouble("penalty") * dif;}
+                    if(dif > 0) {penalty = 1.0 * dif;}
                     return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("username"), row.getString("expected_return_date"), row.getString("returned"), row.getString("book"), penalty.toString() };
                 });
 
@@ -338,7 +338,7 @@ public class AppController
                         Duration duration = Duration.between(from, localDateTime);
                         Long dif = duration.toDays();
                         Double penalty = 0.0;
-                        if(dif > 0) {penalty = row.getDouble("penalty") * dif;}
+                        if(dif > 0) {penalty = 1.0 * dif;}
                         return new String[]{ row.getString("title"), row.getString("borrow_date"), row.getString("expected_return_date"), row.getString("returned"), row.getString("book_id"), penalty.toString() };
                     });
 
