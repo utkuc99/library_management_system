@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="">
+    <list default="true" id="eb8b3c7f-3c5e-4458-8348-4608db20b149" name="Default Changelist" comment="düzeltmeler">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/ozu/cs202project/controllers/AppController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/ServletInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/ServletInitializer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/edu/ozu/cs202project/controllers/AppController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +58,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="YourNameCs202ProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="cs202-project" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="edu.ozu.cs202project.Group23Cs202ProjectApplication" />
@@ -79,7 +89,7 @@
       </list>
     </option>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -99,7 +109,6 @@
       <workItem from="1610454444821" duration="2809000" />
       <workItem from="1610706436346" duration="3432000" />
       <workItem from="1610740801529" duration="4352000" />
-      <workItem from="1610903796946" duration="232000" />
     </task>
     <task id="LOCAL-00001" summary="User menü ekledim&#10;userların book'ları listelemesi için sayfa ekledim&#10;her book'un detaylı görülebilmesi için sayfa ekledim&#10;userların borrow geçmişini görmesi için sayfa ekledim">
       <created>1610195559712</created>
@@ -255,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610814383125</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="düzeltmeler">
+      <created>1610819718392</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1610819718393</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,13 +282,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="User menü ekledim&#10;userların book'ları listelemesi için sayfa ekledim&#10;her book'un detaylı görülebilmesi için sayfa ekledim&#10;userların borrow geçmişini görmesi için sayfa ekledim" />
@@ -297,40 +312,7 @@
     <MESSAGE value="ui improvements&#10;added delete when add book request is declined&#10;when adding a book genre topic and author can be entered by name now" />
     <MESSAGE value="user statistics added" />
     <MESSAGE value="ui fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="ui fixes" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1380" height="287" key="GridCell.Tab.0.bottom" timestamp="1610881012804">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1380" height="287" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1610881012804" />
-    <state width="1380" height="287" key="GridCell.Tab.0.center" timestamp="1610881012803">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1380" height="287" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1610881012803" />
-    <state width="1380" height="287" key="GridCell.Tab.0.left" timestamp="1610881012802">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1380" height="287" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1610881012802" />
-    <state width="1380" height="287" key="GridCell.Tab.0.right" timestamp="1610881012803">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1380" height="287" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1610881012803" />
-    <state width="1380" height="287" key="GridCell.Tab.1.bottom" timestamp="1610881012808">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1380" height="287" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1610881012808" />
-    <state width="1380" height="287" key="GridCell.Tab.1.center" timestamp="1610881012806">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1380" height="287" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1610881012806" />
-    <state width="1380" height="287" key="GridCell.Tab.1.left" timestamp="1610881012805">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1380" height="287" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1610881012805" />
-    <state width="1380" height="287" key="GridCell.Tab.1.right" timestamp="1610881012807">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="1380" height="287" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1610881012807" />
+    <MESSAGE value="düzeltmeler" />
+    <option name="LAST_COMMIT_MESSAGE" value="düzeltmeler" />
   </component>
 </project>
